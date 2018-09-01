@@ -50,3 +50,16 @@ select {
     font-weight: 600;
     margin-top: 10px;
 }
+
+header {
+    background:#03a9f4;
+    text-align: center
+}
+
+.logo{
+    color:#fff;
+    font-size:40px;
+    font-family: 'roboto', serif;
+    background-color: #7b96d29e;
+    text-align: center;
+}

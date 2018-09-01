@@ -1,5 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import InstantMessage from "./components/instantMessage";
+import App from "./components/app.js";
 
-ReactDOM.render(<InstantMessage />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));

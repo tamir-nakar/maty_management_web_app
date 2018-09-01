@@ -1,5 +1,6 @@
 import React from 'react';
-import '../../css/styles.css'
+import Respond from '../../components/respond';
+import '../../css/styles.css';
 
 const FormFields = (props) => { //functional class
 
@@ -23,13 +24,13 @@ const FormFields = (props) => { //functional class
         })
     };
 
-    const renderTemplates = (data) => {
+    const renderTemplates = (itemToBeRendered) => {
 
-        if(data.settings.visibility === false) // need to be hidden -> don't render
+        if(itemToBeRendered.settings.visibility === false) // need to be hidden -> don't render
             return;
 
         let formTemplate = '';
-        let values = data.settings;
+        let values = itemToBeRendered.settings;
 
         switch(values.element){
             case('input'):
@@ -39,7 +40,7 @@ const FormFields = (props) => { //functional class
                         <input
                             {...values.config}
                             value={values.value}
-                            onChange={(event) => changeHandler(event, data.id)}
+                            onChange={(event) => changeHandler(event, itemToBeRendered.id)}
                         />
                     </div>
                 );
@@ -51,7 +52,7 @@ const FormFields = (props) => { //functional class
                         <textarea
                             {...values.config}
                             value={values.value}
-                            onChange={(event) => changeHandler(event,data.id)}
+                            onChange={(event) => changeHandler(event,itemToBeRendered.id)}
                         />
                     </div>
                 );
@@ -63,7 +64,7 @@ const FormFields = (props) => { //functional class
                         <input
                             {...values.config}
                             value={values.value}
-                            onChange={(event) => changeToggleHandler(event,data.id)}
+                            onChange={(event) => changeToggleHandler(event,itemToBeRendered.id)}
                         />
                     </div>
                 );
@@ -75,7 +76,7 @@ const FormFields = (props) => { //functional class
                         <select
                             value={values.value}
                             name={values.config.name}
-                            onChange={(event) => changeHandler(event,data.id)}
+                            onChange={(event) => changeHandler(event,itemToBeRendered.id)}
                         >
                             {values.config.options.map((item,i) =>(
                                 <option key={i} value={item.val}>
@@ -84,6 +85,23 @@ const FormFields = (props) => { //functional class
                             ))}
 
                         </select>
+                    </div>
+                );
+                break;
+            case('responses'):
+                formTemplate =(
+                    <div>
+                        {showLabel(values.label,values.labelText)}
+                        {values.valuesArr.map((item,i) =>(
+                            <Respond
+                                key={i}
+                                id={i}
+                                messaging_type_val={item.messaging_type}
+                                message_val={item.message}
+                                //changeFunc = {(event) => respondChangeHandler(event, index, name)}
+                                changeFunc = {respondChangeHandler}
+                            />
+                        ))}
                     </div>
                 );
                 break;
@@ -103,7 +121,16 @@ const FormFields = (props) => { //functional class
 
         const newState = props.formData;
         newState[id].value = event.target.value;
+        //console.log("i gonna change "+ id.toString() + " text box to " + event.target.value);
+        props.change(newState);
+    };
 
+    const respondChangeHandler = (event, index, name) =>{
+
+
+        const newState = props.formData;
+        newState['responses'].valuesArr[index][name]= event.target.value;
+        //console.log("i gonna change "+ id.toString() + " text box to " + event.target.value);
         props.change(newState);
     };
 
