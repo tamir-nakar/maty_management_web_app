@@ -199,7 +199,7 @@ class InstantMessage extends Component {
 
     render() {
         return (
-            <div className="container">
+            <div className="container" align="center">
                 <form onSubmit={this.submitForm}>
                     <FormFields
                         formData={this.state.formData}
