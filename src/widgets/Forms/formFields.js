@@ -7,10 +7,10 @@ const FormFields = (props) => { //functional class
 
         const formArray =[];
 
-        for(let elementName in props.formData){
+        for(let element in props.formData){
             formArray.push({
-                id:elementName,
-                settings: props.formData[elementName]
+                id:element,
+                settings: props.formData[element]
             })
         }
 
@@ -24,6 +24,9 @@ const FormFields = (props) => { //functional class
     };
 
     const renderTemplates = (data) => {
+
+        if(data.settings.visibility === false) // need to be hidden -> don't render
+            return;
 
         let formTemplate = '';
         let values = data.settings;

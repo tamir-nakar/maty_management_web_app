@@ -11,6 +11,7 @@ class InstantMessage extends Component {
                 value: '',
                 label: true,
                 labelText: 'Type of service',
+                visibility: true,
                 config: {
                     name: 'age_input',
                     options:[
@@ -25,6 +26,7 @@ class InstantMessage extends Component {
                 value: '',
                 label: true,
                 labelText: 'name',
+                visibility: true,
                 config: {
                     name: 'type_input',
                     type: 'text',
@@ -36,6 +38,7 @@ class InstantMessage extends Component {
                 value: false,
                 label: true,
                 labelText: 'Random',
+                visibility: true,
                 config: {
                     name: 'random_checkbox',
                     type: 'checkbox'
@@ -46,16 +49,75 @@ class InstantMessage extends Component {
                 value: false,
                 label: true,
                 labelText: 'date_greet',
+                visibility: true,
                 config: {
                     name: 'date_greet_checkbox',
                     type: 'checkbox'
                 }
             },
+            //visible only when dateGreet checkbox is selected
+            dateGreet_morning: {
+                element: 'input',
+                value: '',
+                label: true,
+                labelText: 'Morning',
+                visibility: false,
+                config: {
+                    name: 'dateGreet_morning_input',
+                    type: 'text'
+                }
+            },
+            dateGreet_noon: {
+                element: 'Noon',
+                value: '',
+                label: true,
+                labelText: 'Noon',
+                visibility: false,
+                config: {
+                    name: 'dateGreet_noon_input',
+                    type: 'text'
+                }
+            },
+            dateGreet_afternoon: {
+                element: 'input',
+                value: '',
+                label: true,
+                labelText: 'Afternoon',
+                visibility: false,
+                config: {
+                    name: 'dateGreet_afternoon_input',
+                    type: 'text'
+                }
+            },
+            dateGreet_evening: {
+                element: 'input',
+                value: '',
+                label: true,
+                labelText: 'Evening',
+                visibility: false,
+                config: {
+                    name: 'dateGreet_evening_input',
+                    type: 'text'
+                }
+            },
+            dateGreet_night: {
+                element: 'input',
+                value: '',
+                label: true,
+                labelText: 'Night',
+                visibility: false,
+                config: {
+                    name: 'dateGreet_night_input',
+                    type: 'text'
+                }
+            },
+            //-------------------------------------------------
             db: {
                 element: 'textarea',
                 value: '',
-                label: true,
+                label: false,
                 labelText: 'db',
+                visibility: false,
                 config: {
                     name: 'db_input',
                     rows: 4,
@@ -67,6 +129,7 @@ class InstantMessage extends Component {
                 value: '1',
                 label: true,
                 labelText: 'Select number Of Responses',
+                visibility: true,
                 config: {
                     name: 'numOfResponses_input',
                     options:[
@@ -95,17 +158,16 @@ class InstantMessage extends Component {
 
     updateForm = (newFormData) => {
 
+        //delete any "response_#" field before re-creating them
         for(let field in newFormData){
             console.log('checking field: '+ field);
             if(/response_./.test(field.toString())){
                 delete newFormData[field];
                 console.log('success');
-
             }
-
         }
-        //delete newFormData[/response_./];
-        for(let i = 0; i < newFormData['numOfResponses'].value; i++){
+        //creating "response" fields as much as user asked for
+        for(let i = 0; i < newFormData['numOfResponses'].value; i++) {
             newFormData['response_'+i] =
                 {
                     element: 'input',
@@ -119,11 +181,20 @@ class InstantMessage extends Component {
                     }
                 };
         }
+
+        const showOrHideDateGreetOptions = newFormData['dateGreet'].value;
+        for(let field in newFormData){
+            if(/dateGreet_.*/.test(field.toString())){
+                newFormData[field].visibility = showOrHideDateGreetOptions;
+            }
+        }
+
         //const newState = {...newFormData, ...extraFields}; a way to merge objevts
         this.setState({
             formData: newFormData
         });
-        console.log(this.state);
+        console.log(this.state.formData['dateGreet'].value)
+        //console.log(this.state);
     };
 
     render() {
@@ -140,4 +211,5 @@ class InstantMessage extends Component {
         )
     }
 }
+
 export default InstantMessage;
