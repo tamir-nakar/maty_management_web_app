@@ -24,7 +24,6 @@ class Respond extends Component {
                     onChange={(event) => this.props.changeFunc(event, this.props.id, 'message')}
                     //onChange={(event) => changeHandler(event, data.id)}
                 />
-                <button className='floatRight'>delete</button>
 
             </div>
 

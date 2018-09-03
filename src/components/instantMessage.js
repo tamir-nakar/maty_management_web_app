@@ -113,26 +113,14 @@ class InstantMessage extends Component {
                 }
             },
             //-------------------------------------------------
-            db: {
-                element: 'textarea',
-                value: '',
-                label: false,
-                labelText: 'db',
-                visibility: false,
-                config: {
-                    name: 'db_input',
-                    rows: 4,
-                    cols: 36
-                }
-            },
             responses:{
                 element: 'responses',
                 label:true,
                 labelText: 'Responses',
                 visibility: true,
                 valuesArr:[{
-                    messaging_type:'dada',
-                    message:'baba'
+                    messaging_type:'',
+                    message:''
                 }]
             }
         }
@@ -147,6 +135,32 @@ class InstantMessage extends Component {
         }
         //console.log(dataToSubmit);
         //axios.post(url,dataToSubmit)
+    };
+
+    handleAddResponse = (event) => {
+
+        const newResponse = {
+            messaging_type:'',
+            message:''
+        };
+
+        const newFormData = this.state.formData;
+        newFormData.responses.valuesArr.push(newResponse);
+        this.setState({
+            formData: newFormData
+        });
+    };
+
+    handleDeleteResponse = (event) => {
+
+        if(this.state.formData.responses.valuesArr.length === 1)
+            return;
+
+        const newFormData = this.state.formData;
+        newFormData.responses.valuesArr.pop();
+        this.setState({
+            formData: newFormData
+        });
     };
 
     updateForm = (newFormData) => {
@@ -174,7 +188,9 @@ class InstantMessage extends Component {
                         formData={this.state.formData}
                         change={(newState) => this.updateForm(newState)}
                     />
-                    <button>Add Response</button>
+                    <button onClick={this.handleAddResponse}>Add Response</button>
+                    <button onClick={this.handleDeleteResponse}>Delete Response</button><br/><br/>
+
                     <button type="submit">Submit</button>
                 </form>
             </div>
