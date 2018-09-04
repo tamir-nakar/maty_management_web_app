@@ -6,21 +6,6 @@ class InstantMessage extends Component {
 
     state = {
         formData: {
-            service: {
-                element: 'select',
-                value: '',
-                label: true,
-                labelText: 'Type of service',
-                visibility: true,
-                config: {
-                    name: 'age_input',
-                    options:[
-                        {val:'1',text:'Instant Message'},
-                        {val:'2',text:'External Service'},
-                        {val:'3',text:'Recipe'}
-                    ]
-                }
-            },
             name: { //type of the service (also the name of the JSON) e.i : greeting,
                 element: 'input',
                 value: '',
