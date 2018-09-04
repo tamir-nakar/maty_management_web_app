@@ -69,7 +69,7 @@ class InstantMessage extends Component {
                 }
             },
             dateGreet_noon: {
-                element: 'Noon',
+                element: 'input',
                 value: '',
                 label: true,
                 labelText: 'Noon',
@@ -129,10 +129,28 @@ class InstantMessage extends Component {
     submitForm = (event) => { //todo - send JSON to remote server
         event.preventDefault();
 
-        let dataToSubmit = {};
-        for (let key in this.state.formData) {
-            dataToSubmit[key] = this.state.formData[key].value
-        }
+        let dataToSubmit ={};
+        const form = this.state.formData;
+        dataToSubmit['type'] = form.name.value;
+        dataToSubmit['instant_message'] = {};
+        dataToSubmit.instant_message['random'] = form.random.value;
+        dataToSubmit.instant_message['date_greet'] = {};
+        dataToSubmit.instant_message.date_greet['morning'] = form.dateGreet_morning.value;
+        dataToSubmit.instant_message.date_greet['noon'] = form.dateGreet_noon.value;
+        dataToSubmit.instant_message.date_greet['afternoon'] = form.dateGreet_afternoon.value;
+        dataToSubmit.instant_message.date_greet['evening'] = form.dateGreet_evening.value;
+        dataToSubmit.instant_message.date_greet['night'] = form.dateGreet_night.value;
+        dataToSubmit.instant_message['response'] = form.responses.valuesArr;
+
+        console.log(JSON.stringify(dataToSubmit));
+        // fetch('https://mywebsite.com/endpoint/', {
+        //     method: 'POST',
+        //     headers: {
+        //         'Accept': 'application/json',
+        //         'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify(dataToSubmit)
+        // })
         //console.log(dataToSubmit);
         //axios.post(url,dataToSubmit)
     };
@@ -168,7 +186,9 @@ class InstantMessage extends Component {
         const showOrHideDateGreetOptions = newFormData['dateGreet'].value;
         for(let field in newFormData){
             if(/dateGreet_.*/.test(field.toString())){
+                //console.log("just cought :"+ field.toString());
                 newFormData[field].visibility = showOrHideDateGreetOptions;
+                //console.log(field.toString() + " visibility is now: " + newFormData[field].visibility);
             }
         }
 
