@@ -6,9 +6,9 @@ body {
 }
 
 .container {
-    width: 75%;
+    margin-left:auto;
+    margin-right:auto;
     position: relative;
-    //padding: 10px 20px;
 }
 
 .form_element {
@@ -16,22 +16,25 @@ body {
 }
 
 .form_element label {
-    display: block;
-    margin-bottom: 5px;
-    font-size: 20px;
-    font-weight: 300;
-    background-color: rgba(63, 81, 181, 0.15);
+     display: block;
+     margin-bottom: 5px;
+     font-size: 20px;
+     font-weight: 300;
+     background-color: rgba(63, 81, 181, 0.15);
 
-}
+ }
 
 form{
     background-color: #f3f3f3;
     width:50%;
 }
+
 input {
     font-size: 20px;
     padding: 8px 12px;
     box-sizing: border-box;
+    border-radius: 20px;
+    resize: vertical;
 }
 
 button {
@@ -43,6 +46,7 @@ button {
 
 select {
     font-size: 15px;
+    width:70%;
 }
 
 .label_error {
@@ -53,13 +57,14 @@ select {
 
 header {
     background:#03a9f4;
-    text-align: center
+    text-align: center;
 }
 
 .logo{
     color:#fff;
     font-size:40px;
-    font-family: 'roboto', serif;
+    font-family: 'Maven pro', serif;
     background-color: #7b96d29e;
     text-align: center;
+    padding-bottom: 15px;
 }

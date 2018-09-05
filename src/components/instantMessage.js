@@ -2,6 +2,7 @@ import React, { Component} from 'react';
 import FormFields from "../widgets/Forms/formFields";
 import '../css/styles.css'
 
+
 class InstantMessage extends Component {
 
     state = {
@@ -113,6 +114,7 @@ class InstantMessage extends Component {
 
     submitForm = (event) => { //todo - send JSON to remote server
         event.preventDefault();
+        console.log("in submit form");
 
         let dataToSubmit ={};
         const form = this.state.formData;
@@ -127,23 +129,22 @@ class InstantMessage extends Component {
         dataToSubmit.instant_message.date_greet['night'] = form.dateGreet_night.value;
         dataToSubmit.instant_message['response'] = form.responses.valuesArr;
 
-        console.log(JSON.stringify(dataToSubmit));
-        // fetch('https://mywebsite.com/endpoint/', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Accept': 'application/json',
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify(dataToSubmit)
-        // })
-        //console.log(dataToSubmit);
-        //axios.post(url,dataToSubmit)
+        //console.log(JSON.stringify(dataToSubmit));
+        fetch('https://b6e34998.ngrok.io/rule', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(dataToSubmit)
+        })
+
     };
 
     handleAddResponse = (event) => {
 
         const newResponse = {
-            messaging_type:'',
+            messaging_type:'RESPONSE',
             message:''
         };
 
@@ -171,9 +172,7 @@ class InstantMessage extends Component {
         const showOrHideDateGreetOptions = newFormData['dateGreet'].value;
         for(let field in newFormData){
             if(/dateGreet_.*/.test(field.toString())){
-                //console.log("just cought :"+ field.toString());
                 newFormData[field].visibility = showOrHideDateGreetOptions;
-                //console.log(field.toString() + " visibility is now: " + newFormData[field].visibility);
             }
         }
 
@@ -186,18 +185,19 @@ class InstantMessage extends Component {
     };
 
     render() {
+
         return (
-            <div className="container" align="center">
+            <div className="container-fluid" align="center">
                 <form onSubmit={this.submitForm}>
                     <FormFields
                         formData={this.state.formData}
                         change={(newState) => this.updateForm(newState)}
                     />
-                    <button onClick={this.handleAddResponse}>Add Response</button>
-                    <button onClick={this.handleDeleteResponse}>Delete Response</button><br/><br/>
-
+                    <button onClick={this.handleAddResponse} className="btn btn-success">Add Response</button>
+                    <button onClick={this.handleDeleteResponse} className="btn btn-danger">Delete Response</button><br/><br/>
                     <button type="submit">Submit</button>
                 </form>
+
             </div>
         )
     }

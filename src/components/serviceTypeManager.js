@@ -1,8 +1,7 @@
 import React from 'react';
-import '../css/styles.css'
+import '../css/styles.css';
 import FormFields from "../widgets/Forms/formFields";
 import InstantMessage from "./instantMessage";
-import Respond from "./respond";
 
 class ServiceTypeManager extends React.Component {
 
@@ -37,7 +36,7 @@ class ServiceTypeManager extends React.Component {
 
     };
 
-    getComponent(props) {
+    getComponent() {
 
         let retVal = null;
         switch(this.state.formData.service.value){
@@ -57,13 +56,21 @@ class ServiceTypeManager extends React.Component {
         return retVal;
     }
 
+
+
     render() {
+
+        const specific = {
+            background:'#ffc107',
+            color: 'white'
+        };
+
         return (
             <div className="container" align="center">
-                <form>
+                <form style={specific}>
                     <FormFields
-                        formData={this.state.formData}
-                        change={(newState) => this.updateForm(newState)}
+                                formData={this.state.formData}
+                                change={(newState) => this.updateForm(newState)}
                     />
 
                 </form>

@@ -73,7 +73,7 @@ const FormFields = (props) => { //functional class
                 formTemplate =(
                     <div>
                         {showLabel(values.label,values.labelText)}
-                        <select
+                        <select className="form-control"
                             value={values.value}
                             name={values.config.name}
                             onChange={(event) => changeHandler(event,itemToBeRendered.id)}
@@ -126,7 +126,6 @@ const FormFields = (props) => { //functional class
     };
 
     const respondChangeHandler = (event, index, name) =>{
-
 
         const newState = props.formData;
         newState['responses'].valuesArr[index][name]= event.target.value;
