@@ -61,19 +61,19 @@ class ServiceTypeManager extends React.Component {
     render() {
 
         const specific = {
-            background:'#ffc107',
+            background:'rgb(162, 183, 182)',
             color: 'white'
         };
 
         return (
-            <div className="container" align="center">
+            <div className="container" >
                 <form style={specific}>
                     <FormFields
                                 formData={this.state.formData}
                                 change={(newState) => this.updateForm(newState)}
                     />
 
-                </form>
+                </form><br/>
                 {this.getComponent()};
             </div>
         )

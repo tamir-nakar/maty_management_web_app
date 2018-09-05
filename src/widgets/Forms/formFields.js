@@ -98,7 +98,6 @@ const FormFields = (props) => { //functional class
                                 id={i}
                                 messaging_type_val={item.messaging_type}
                                 message_val={item.message}
-                                //changeFunc = {(event) => respondChangeHandler(event, index, name)}
                                 changeFunc = {respondChangeHandler}
                             />
                         ))}

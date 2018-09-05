@@ -187,7 +187,7 @@ class InstantMessage extends Component {
     render() {
 
         return (
-            <div className="container-fluid" align="center">
+            <div className="container-fluid">
                 <form onSubmit={this.submitForm}>
                     <FormFields
                         formData={this.state.formData}
@@ -195,6 +195,7 @@ class InstantMessage extends Component {
                     />
                     <button onClick={this.handleAddResponse} className="btn btn-success">Add Response</button>
                     <button onClick={this.handleDeleteResponse} className="btn btn-danger">Delete Response</button><br/><br/>
+                    <lable className="label_green">. </lable>
                     <button type="submit">Submit</button>
                 </form>
 
