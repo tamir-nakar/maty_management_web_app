@@ -8,7 +8,6 @@
     "react-burger-menu": "^2.5.2",
     "react-dom": "^16.4.2",
     "react-scripts": "1.1.5",
-    "react-simple-tooltip": "^2.3.2",
     "react-tooltip": "^3.8.1"
   },
   "scripts": {

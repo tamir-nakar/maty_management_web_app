@@ -1,7 +1,6 @@
 import React from 'react';
 import Respond from '../../components/respond';
 import '../../css/styles.css';
-import Tooltip from "react-simple-tooltip"
 import ReactTooltip from 'react-tooltip'
 
 const FormFields = (props) => { //functional class
