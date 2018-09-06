@@ -33,9 +33,13 @@ body {
      font-size: 20px;
      font-weight: 300;
      background-color: rgba(63, 81, 181, 0.15);
-
+    border-radius: 20px;
  }
 
+.toolkit_info {
+    font-size: 18px;
+    width: 400px;
+}
 .label_green{
     display: block;
     margin-bottom: 5px;
@@ -54,11 +58,12 @@ form{
 }
 
 input {
-    font-size: 20px;
+    font-size: 17px;
     padding: 8px 12px;
     box-sizing: border-box;
     border-radius: 20px;
     resize: vertical;
+    width: 90%;
 }
 
 button {
@@ -95,5 +100,4 @@ header {
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     border-color: white;
-
 }

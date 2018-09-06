@@ -11,7 +11,9 @@ class InstantMessage extends Component {
                 element: 'input',
                 value: '',
                 label: true,
-                labelText: 'name',
+                labelText: 'Service Name',
+                hover: true,
+                labelTextOnHover: 'Choose a name for your Instant Message service',
                 visibility: true,
                 config: {
                     name: 'type_input',
@@ -23,7 +25,11 @@ class InstantMessage extends Component {
                 element: 'checkbox',
                 value: false,
                 label: true,
-                labelText: 'Random',
+                labelText: 'Random Answer',
+                hover: true,
+                labelTextOnHover: "Enable/Disable Random Answer feature. When enabled " +
+                    "your service will always choose ONE random response \n to send back from the" +
+                    " responses list.",
                 visibility: true,
                 config: {
                     name: 'random_checkbox',
@@ -34,7 +40,11 @@ class InstantMessage extends Component {
                 element: 'checkbox',
                 value: false,
                 label: true,
-                labelText: 'date_greet',
+                labelText: 'Date Greetings',
+                hover: true,
+                labelTextOnHover: 'Enable/Disable Date Greetings feature. When enabled' +
+                    'your service will respond the right greet according to day time. use the ' +
+                    '{date_greet} tag to locate your greet inside the answer',
                 visibility: true,
                 config: {
                     name: 'date_greet_checkbox',
@@ -102,7 +112,10 @@ class InstantMessage extends Component {
             responses:{
                 element: 'responses',
                 label:true,
-                labelText: 'Responses',
+                labelText: 'Responses List',
+                hover: true,
+                labelTextOnHover: 'A responses list of all your Instant Message Service. you can add/remove ' +
+                    'responses clicking the appropirate buttons below',
                 visibility: true,
                 valuesArr:[{
                     messaging_type:'',
