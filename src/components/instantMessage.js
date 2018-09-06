@@ -195,7 +195,7 @@ class InstantMessage extends Component {
                     />
                     <button onClick={this.handleAddResponse} className="btn btn-success">Add Response</button>
                     <button onClick={this.handleDeleteResponse} className="btn btn-danger">Delete Response</button><br/><br/>
-                    <lable className="label_green">. </lable>
+                    <label> className="label_green">. </label>
                     <button type="submit">Submit</button>
                 </form>
 

@@ -1,4 +1,4 @@
-import React, { Component} from 'react';
+import React from 'react';
 import '../css/styles.css'
 
 const Header = (props) => { //functional class

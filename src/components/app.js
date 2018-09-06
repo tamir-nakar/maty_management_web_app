@@ -1,4 +1,4 @@
-import React, { Component} from 'react';
+import React from 'react';
 import ServiceTypeManager from "../components/serviceTypeManager"
 import Header from './header.js';
 import Menu from '../components/menu'

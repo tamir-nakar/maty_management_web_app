@@ -14,7 +14,7 @@ class BurgerMenu extends Component {
 
         return (
             <Menu>
-                <span style={{'font-size': '20px', 'color' : '#aa9bff'}}> MENU </span><br />
+                <span style={{fontSize: '20px', 'color' : '#aa9bff'}}> MENU </span><br />
                 <a id="home" className="menu-item" href="/">Home</a><hr/>
                 <a id="responses" className="menu-item" href="/about">Rules</a><hr/>
                 <a id="DataBase" className="menu-item" href="/contact">Data Management</a><hr/>
