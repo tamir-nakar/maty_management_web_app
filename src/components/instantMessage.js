@@ -141,7 +141,8 @@ class InstantMessage extends Component {
 
     };
 
-    handleAddResponse = (event) => {
+    handleAddResponse = () => {
+
 
         const newResponse = {
             messaging_type:'RESPONSE',
@@ -193,9 +194,9 @@ class InstantMessage extends Component {
                         formData={this.state.formData}
                         change={(newState) => this.updateForm(newState)}
                     />
-                    <button onClick={this.handleAddResponse} className="btn btn-success">Add Response</button>
-                    <button onClick={this.handleDeleteResponse} className="btn btn-danger">Delete Response</button><br/><br/>
-                    <label> className="label_green">. </label>
+                    <button type="button" onClick={this.handleAddResponse} className="btn btn-success">Add Response</button>
+                    <button type="button" onClick={this.handleDeleteResponse} className="btn btn-danger">Delete Response</button><br/><br/>
+                    <label className="label_green">_ </label>
                     <button type="submit">Submit</button>
                 </form>
 
