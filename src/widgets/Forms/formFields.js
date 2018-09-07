@@ -3,6 +3,7 @@ import Respond from '../../components/respond';
 import '../../css/styles.css';
 import ReactTooltip from 'react-tooltip'
 
+
 const FormFields = (props) => { //functional class
 
     const renderFields = () => {
@@ -36,7 +37,8 @@ const FormFields = (props) => { //functional class
         switch(values.element){
             case('input'):
                 formTemplate =(
-                    <div>
+                    <div className={values.animate === true? "animate" : "none"}>
+
                         {createLabel(values.label, values.labelText, values.hover, values.labelTextOnHover , values.config.name)}
                         <input
                             {...values.config}

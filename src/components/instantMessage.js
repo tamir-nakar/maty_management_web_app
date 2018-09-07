@@ -2,7 +2,6 @@ import React, { Component} from 'react';
 import FormFields from "../widgets/Forms/formFields";
 import '../css/styles.css'
 
-
 class InstantMessage extends Component {
 
     state = {
@@ -55,6 +54,7 @@ class InstantMessage extends Component {
             //-------------------------------------------------
             dateGreet_morning: {
                 element: 'input',
+                animate: true,
                 value: '',
                 label: true,
                 labelText: 'Morning',
@@ -66,6 +66,7 @@ class InstantMessage extends Component {
             },
             dateGreet_noon: {
                 element: 'input',
+                animate: true,
                 value: '',
                 label: true,
                 labelText: 'Noon',
@@ -77,6 +78,7 @@ class InstantMessage extends Component {
             },
             dateGreet_afternoon: {
                 element: 'input',
+                animate: true,
                 value: '',
                 label: true,
                 labelText: 'Afternoon',
@@ -88,6 +90,7 @@ class InstantMessage extends Component {
             },
             dateGreet_evening: {
                 element: 'input',
+                animate: true,
                 value: '',
                 label: true,
                 labelText: 'Evening',
@@ -99,6 +102,7 @@ class InstantMessage extends Component {
             },
             dateGreet_night: {
                 element: 'input',
+                animate: true,
                 value: '',
                 label: true,
                 labelText: 'Night',
@@ -156,7 +160,6 @@ class InstantMessage extends Component {
 
     handleAddResponse = () => {
 
-
         const newResponse = {
             messaging_type:'RESPONSE',
             message:''
@@ -207,12 +210,11 @@ class InstantMessage extends Component {
                         formData={this.state.formData}
                         change={(newState) => this.updateForm(newState)}
                     />
-                    <button type="button" onClick={this.handleAddResponse} className="btn btn-success">Add Response</button>
-                    <button type="button" onClick={this.handleDeleteResponse} className="btn btn-danger">Delete Response</button><br/><br/>
-                    <label className="label_green">_ </label>
-                    <button type="submit">Submit</button>
+                    <button type="button" onClick={this.handleAddResponse} className="btn btn-info">Add Response</button><span> </span>
+                    <button type="button" onClick={this.handleDeleteResponse} className="btn btn-info">Remove Response</button><br/><br/>
+                    <label className="label_blue">_ </label>
+                    <button type="submit" className="btn btn-success">Submit</button>
                 </form>
-
             </div>
         )
     }

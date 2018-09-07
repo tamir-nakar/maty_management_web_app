@@ -4,10 +4,15 @@ import '../css/respond.css'
 
 class Respond extends Component {
 
-
     render() {
+        let animate = "animate";
+        if(this.props.id === 0)
+        {
+            animate = "none";
+        }
         return (
-            <div className="container">
+
+            <div className={animate}>
                 <label>Response #{this.props.id +1 }</label>
                 {/*<input*/}
                     {/*name='messaging_type'*/}

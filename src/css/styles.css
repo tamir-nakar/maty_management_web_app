@@ -15,12 +15,10 @@ body {
     background-color: #0dfffd26;
     width:75%;
     margin: auto;
-    padding: 10px;
     border-style: inset;
     border-top: none;
     border-bottom: none;
-    padding-top: 25px;
-
+    padding: 25px 10px 10px;
 
 }
 .form_element {
@@ -33,7 +31,9 @@ body {
      font-size: 20px;
      font-weight: 300;
      background-color: rgba(63, 81, 181, 0.15);
-    border-radius: 20px;
+    /*border-radius: 20px;*/
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
  }
 
 .toolkit_info {
@@ -48,12 +48,21 @@ body {
     background-color: rgba(63, 181, 87, 0.38);
 }
 
+.label_blue{
+
+    display: block;
+    margin-bottom: 5px;
+    font-size: 20px;
+    font-weight: 300;
+    background-color: rgba(63, 81, 181, 0.15);
+    /*border-radius: 20px;*/
+
+}
+
 form{
     background-color: #f3f3f3;
     width:50%;
-    border-style: solid;
-    border-width: 3px;
-    border-color: white;
+    border: 3px solid white;
     border-radius: 20px;
 }
 
@@ -101,3 +110,20 @@ header {
     border-bottom-right-radius: 20px;
     border-color: white;
 }
+
+@keyframes slideInFromTop {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.animate {
+    animation: 1s ease-out 0s 1 slideInFromTop;
+    /*transition: transform 300ms ease-in-out;*/
+
+}
+
+
