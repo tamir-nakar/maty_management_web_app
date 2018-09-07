@@ -122,7 +122,7 @@ class InstantMessage extends Component {
                     'responses clicking the appropirate buttons below',
                 visibility: true,
                 valuesArr:[{
-                    messaging_type:'',
+                    messaging_type:'RESPONSE',
                     message:''
                 }]
             }
@@ -147,6 +147,7 @@ class InstantMessage extends Component {
         dataToSubmit.instant_message['response'] = form.responses.valuesArr;
 
         //console.log(JSON.stringify(dataToSubmit));
+        console.log(dataToSubmit);
         fetch('https://b6e34998.ngrok.io/rule', {
             method: 'POST',
             headers: {
@@ -156,32 +157,6 @@ class InstantMessage extends Component {
             body: JSON.stringify(dataToSubmit)
         })
 
-    };
-
-    handleAddResponse = () => {
-
-        const newResponse = {
-            messaging_type:'RESPONSE',
-            message:''
-        };
-
-        const newFormData = this.state.formData;
-        newFormData.responses.valuesArr.push(newResponse);
-        this.setState({
-            formData: newFormData
-        });
-    };
-
-    handleDeleteResponse = (event) => {
-
-        if(this.state.formData.responses.valuesArr.length === 1)
-            return;
-
-        const newFormData = this.state.formData;
-        newFormData.responses.valuesArr.pop();
-        this.setState({
-            formData: newFormData
-        });
     };
 
     updateForm = (newFormData) => {
@@ -210,8 +185,6 @@ class InstantMessage extends Component {
                         formData={this.state.formData}
                         change={(newState) => this.updateForm(newState)}
                     />
-                    <button type="button" onClick={this.handleAddResponse} className="btn btn-info">Add Response</button><span> </span>
-                    <button type="button" onClick={this.handleDeleteResponse} className="btn btn-info">Remove Response</button><br/><br/>
                     <label className="label_blue">_ </label>
                     <button type="submit" className="btn btn-success">Submit</button>
                 </form>

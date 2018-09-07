@@ -95,15 +95,10 @@ const FormFields = (props) => { //functional class
                 formTemplate =(
                     <div>
                         {createLabel(values.label, values.labelText, values.hover, values.labelTextOnHover , 'responses_List_id')}
-                        {values.valuesArr.map((item,i) =>(
                             <Respond
-                                key={i}
-                                id={i}
-                                messaging_type_val={item.messaging_type}
-                                message_val={item.message}
+                                arr={values.valuesArr}
                                 changeFunc = {respondChangeHandler}
                             />
-                        ))}
                     </div>
                 );
                 break;
@@ -141,11 +136,15 @@ const FormFields = (props) => { //functional class
     };
 
     const respondChangeHandler = (event, index, name) =>{
-
+        // -1 means we just want the render (no update to state)
         const newState = props.formData;
-        newState['responses'].valuesArr[index][name]= event.target.value;
-        //console.log("i gonna change "+ id.toString() + " text box to " + event.target.value);
+        if(index !== -1){
+            newState['responses'].valuesArr[index][name]= event.target.value;
+            //console.log("i gonna change "+ id.toString() + " text box to " + event.target.value);
+        }
+
         props.change(newState);
+
     };
 
     const changeToggleHandler =(event, id) => {
