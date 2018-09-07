@@ -37,7 +37,7 @@ const FormFields = (props) => { //functional class
         switch(values.element){
             case('input'):
                 formTemplate =(
-                    <div className={values.animate === true? "animate" : "none"}>
+                    <div className={values.animate === true? "fadeinDown" : "none"}>
 
                         {createLabel(values.label, values.labelText, values.hover, values.labelTextOnHover , values.config.name)}
                         <input

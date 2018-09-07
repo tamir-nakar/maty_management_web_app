@@ -2,6 +2,8 @@ import React from 'react';
 import '../css/styles.css';
 import FormFields from "../widgets/Forms/formFields";
 import InstantMessage from "./instantMessage";
+import ExternalService from "./externalService";
+import Recipe from "./recipe";
 
 class ServiceTypeManager extends React.Component {
 
@@ -31,29 +33,27 @@ class ServiceTypeManager extends React.Component {
         this.setState({
             formData: newFormData
         });
-
-        console.log(this.state.formData.service);
-
     };
 
     getComponent() {
 
-        let retVal = null;
+        let chosenComponent = null;
         switch(this.state.formData.service.value){
             case('InstantMessage'):
-                retVal = <InstantMessage/> ;
+                chosenComponent = <InstantMessage/> ;
                 break;
             case('ExternalService'):
-                retVal = <InstantMessage/> ;
+                chosenComponent = <ExternalService/> ;
                 break;
             case('Recipe'):
-                retVal = <InstantMessage/> ;
+                chosenComponent = <Recipe/> ;
                 break;
             default:
-                retVal = null;
+                chosenComponent = null;
         }
 
-        return retVal;
+        console.log("rendered");
+        return(<div className="fadeinDown">{chosenComponent}</div> );
     }
 
 
