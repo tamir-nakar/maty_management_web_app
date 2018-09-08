@@ -6,7 +6,13 @@ class InstantMessage extends Component {
 
     toggleReponsesElementRandom = (elementName) => {
 
-        this.state.formData[elementName]['random'] = !this.state.formData[elementName].random;
+        const newFormData = this.state.formData;
+        newFormData[elementName]['random'] = !this.state.formData[elementName].random;
+
+
+        this.setState({
+            formData: newFormData
+        });
     };
 
     state = {

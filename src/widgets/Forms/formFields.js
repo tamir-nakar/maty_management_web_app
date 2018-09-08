@@ -1,5 +1,7 @@
 import React from 'react';
 import Respond from '../../components/respond';
+import Argument from '../../components/argument';
+
 import '../../css/styles.css';
 import ReactTooltip from 'react-tooltip'
 
@@ -95,13 +97,27 @@ const FormFields = (props) => { //functional class
                 formTemplate =(
                     <div>
                         {createLabel(values.label, values.labelText, values.hover, values.labelTextOnHover , 'responses_List_id')}
-                            <Respond
-                                arr={values.valuesArr}
-                                random={values.random}
-                                changeFunc = {respondChangeHandler}
-                                randomToggleFunc = {values.changeRandomFunc}
-                                elementName = {itemToBeRendered.id}
-                            />
+                        <Respond
+                            arr={values.valuesArr}
+                            random={values.random}
+                            changeFunc = {respondChangeHandler}
+                            randomToggleFunc = {values.changeRandomFunc}
+                            elementName = {itemToBeRendered.id}
+                        />
+                    </div>
+                );
+                break;
+            case('arguments'):
+                formTemplate =(
+                    <div>
+                        {createLabel(values.label, values.labelText, values.hover, values.labelTextOnHover , 'arguments_List_id')}
+                        <Argument
+                            argumentsArr = {values.argumentsArr}
+                            changeFunc = {argumentChangeHandler}
+                            respondsChangeFunc = {argumentInnerResponseHandler}
+                            randomToggleFunc = {values.changeRandomFunc}
+                            elementName={itemToBeRendered.id}
+                        />
                     </div>
                 );
                 break;
@@ -112,8 +128,6 @@ const FormFields = (props) => { //functional class
     };
 
     const createLabel = (label, labelText, hover, OnHoverText, key) => {
-
-
         if(label){
             if(hover){
                 return(
@@ -130,6 +144,26 @@ const FormFields = (props) => { //functional class
         return null
     };
 
+    const argumentChangeHandler = (event, indexInsideArgumentArr, fieldName) =>{
+        // -1 means we just want the render (no update to state)
+        const newState = props.formData;
+        if(indexInsideArgumentArr !== -1){
+                newState['Arguments'].argumentsArr[indexInsideArgumentArr][fieldName]= event.target.value;
+
+        }
+
+
+        props.change(newState);
+
+    };
+    const argumentInnerResponseHandler = (event, indexInsideArgumentArr, fieldName, i) =>{
+        const newState = props.formData;
+        if(indexInsideArgumentArr !== -1) {
+            newState['Arguments'].argumentsArr[indexInsideArgumentArr][fieldName][i]['message'] = event.target.value;
+        }
+        props.change(newState);
+
+    };
     const changeHandler = (event, id) => {
 
         const newState = props.formData;
@@ -138,11 +172,11 @@ const FormFields = (props) => { //functional class
         props.change(newState);
     };
 
-    const respondChangeHandler = (event, index, name) =>{
+    const respondChangeHandler = (event, index,name) =>{
         // -1 means we just want the render (no update to state)
         const newState = props.formData;
         if(index !== -1){
-            newState['responses'].valuesArr[index][name]= event.target.value;
+            newState[name].valuesArr[index]['message']= event.target.value;
             //console.log("i gonna change "+ id.toString() + " text box to " + event.target.value);
         }
 

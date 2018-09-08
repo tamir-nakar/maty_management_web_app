@@ -4,9 +4,47 @@ import '../css/styles.css'
 
 class Recipe extends Component {
 
+    toggleReponsesElementRandom = (elementName) => {
+
+        const newFormData = this.state.formData;
+        newFormData[elementName]['random'] = !this.state.formData[elementName].random;
+
+        this.setState({
+            formData: newFormData
+        });
+    };
+
+    toggleArgumentElementRandom = (argIndex, respond_name) => {
+
+        let name = null;
+        switch(respond_name){
+            case('split_faild_responses'):
+                name = 'split_random';
+                break;
+            case('query_success_responses'):
+                name = 'query_success_random';
+                break;
+            case('query_faild_responses'):
+                name = 'query_failed_random';
+                break;
+            default:
+                name = null;
+        }
+
+        const newFormData = this.state.formData;
+
+        newFormData['Arguments']['argumentsArr'][argIndex][name]=
+            !this.state.formData['Arguments']['argumentsArr'][argIndex][name];
+        
+        this.setState({
+            formData: newFormData
+        });
+
+    };
+
     state = {
         formData: {
-            name: { //type of the service (also the name of the JSON) e.i : greeting,
+            nameOfService: { //type of the service (also the name of the JSON) e.i : greeting,
                 element: 'input',
                 value: '',
                 label: true,
@@ -20,33 +58,51 @@ class Recipe extends Component {
                     placeholder: 'Enter name of service'
                 }
             },
-            random: {
-                element: 'checkbox',
-                value: false,
-                label: true,
-                labelText: 'Random Answer',
-                hover: true,
-                labelTextOnHover: "Enable/Disable Random Answer feature. When enabled " +
-                    "your service will always choose ONE random response \n to send back from the" +
-                    " responses list below.",
-                visibility: true,
-                config: {
-                    name: 'random_checkbox',
-                    type: 'checkbox'
-                }
-            },
             not_found:{
                 element: 'responses',
                 label:true,
-                labelText: 'Responses List',
+                labelText: '"NOT FOUND" Responses List',
                 hover: true,
                 labelTextOnHover: 'Specify Messages that will appear in case of unknown argument',
                 visibility: true,
                 valuesArr:[{
-                    messaging_type:'',
+                    messaging_type:'RESPONSE',
                     message:''
-                }]
-            }
+                }],
+                random: false,
+                changeRandomFunc:this.toggleReponsesElementRandom
+            },
+            Arguments:{
+                element: 'arguments',
+                label:true,
+                labelText: 'ARGUMENTS',
+                hover: true,
+                labelTextOnHover: 'Customise your Recipe service',
+                visibility: true,
+                argumentsArr:[{
+                    name:'',
+                    toSplit:'',
+                    split_faild_responses:[{
+                        messaging_type:'RESPONSE',
+                        message:''
+                    }],
+                    split_random: false,
+                    //match label
+                    query:'',
+                    query_success_responses:[{
+                        messaging_type:'RESPONSE',
+                        message:''
+                    }],
+                    query_success_random: false,
+                    query_faild_responses:[{
+                        messaging_type:'RESPONSE',
+                        message:''
+                    }],
+                    query_failed_random: false,
+                }],
+                changeRandomFunc:this.toggleArgumentElementRandom,
+            },
+
         }
     };
 
@@ -107,13 +163,6 @@ class Recipe extends Component {
 
     updateForm = (newFormData) => {
 
-        const showOrHideDateGreetOptions = newFormData['dateGreet'].value;
-        for(let field in newFormData){
-            if(/dateGreet_.*/.test(field.toString())){
-                newFormData[field].visibility = showOrHideDateGreetOptions;
-            }
-        }
-
         //const newState = {...newFormData, ...extraFields}; a way to merge objevts
         this.setState({
             formData: newFormData
@@ -131,8 +180,6 @@ class Recipe extends Component {
                         formData={this.state.formData}
                         change={(newState) => this.updateForm(newState)}
                     />
-                    <button type="button" onClick={this.handleAddResponse} className="btn btn-info">Add Response</button><span> </span>
-                    <button type="button" onClick={this.handleDeleteResponse} className="btn btn-info">Remove Response</button><br/><br/>
                     <label className="label_blue">_ </label>
                     <button type="submit" className="btn btn-success">Submit</button>
                 </form>
