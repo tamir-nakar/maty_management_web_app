@@ -4,6 +4,11 @@ import '../css/styles.css'
 
 class InstantMessage extends Component {
 
+    toggleReponsesElementRandom = (elementName) => {
+
+        this.state.formData[elementName]['random'] = !this.state.formData[elementName].random;
+    };
+
     state = {
         formData: {
             name: { //type of the service (also the name of the JSON) e.i : greeting,
@@ -18,21 +23,6 @@ class InstantMessage extends Component {
                     name: 'type_input',
                     type: 'text',
                     placeholder: 'Enter name of service'
-                }
-            },
-            random: {
-                element: 'checkbox',
-                value: false,
-                label: true,
-                labelText: 'Random Answer',
-                hover: true,
-                labelTextOnHover: "Enable/Disable Random Answer feature. When enabled " +
-                    "your service will always choose ONE random response \n to send back from the" +
-                    " responses list.",
-                visibility: true,
-                config: {
-                    name: 'random_checkbox',
-                    type: 'checkbox'
                 }
             },
             dateGreet: {
@@ -124,7 +114,9 @@ class InstantMessage extends Component {
                 valuesArr:[{
                     messaging_type:'RESPONSE',
                     message:''
-                }]
+                }],
+                random: false,
+                changeRandomFunc:this.toggleReponsesElementRandom
             }
         }
     };
@@ -137,7 +129,7 @@ class InstantMessage extends Component {
         const form = this.state.formData;
         dataToSubmit['type'] = form.name.value;
         dataToSubmit['instant_message'] = {};
-        dataToSubmit.instant_message['random'] = form.random.value;
+        dataToSubmit.instant_message['random'] = form.responses.random;
         dataToSubmit.instant_message['date_greet'] = {};
         dataToSubmit.instant_message.date_greet['morning'] = form.dateGreet_morning.value;
         dataToSubmit.instant_message.date_greet['noon'] = form.dateGreet_noon.value;
@@ -158,6 +150,8 @@ class InstantMessage extends Component {
         })
 
     };
+
+
 
     updateForm = (newFormData) => {
 

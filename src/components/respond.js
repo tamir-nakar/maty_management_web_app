@@ -1,9 +1,14 @@
 import React, { Component} from 'react';
 import '../css/styles.css'
 import '../css/respond.css'
+import ReactTooltip from "react-tooltip";
 
 class Respond extends Component {
 
+    handleRandomClicked =() => {
+        this.props.randomToggleFunc(this.props.elementName);
+        this.props.changeFunc('event',-1,'message')
+    };
     handleAddResponse = () => {
 
         const newResponse = {
@@ -27,14 +32,13 @@ class Respond extends Component {
 
     render() {
 
-            const inputs = this.props.arr.map((item, i) =>(
+        const inputs = this.props.arr.map((item, i) =>(
             <div key={i} className={i === 0 ? "none" : "fadeinDown"}>
                 <label>Response #{i +1}</label>
                 <input
                     name='message'
                     value={item.message}
                     type ='text'
-                    //onChange={(event) => this.respondChangeHandler(event, i, 'message')}
                     onChange={(event) => this.props.changeFunc(event, i, 'message')}
                 />
             </div>
@@ -43,6 +47,14 @@ class Respond extends Component {
                 {inputs}
                 <button type="button" onClick={this.handleAddResponse} className="btn btn-info">Add Response</button><span>  </span>
                 <button type="button" onClick={this.handleDeleteResponse} className="btn btn-info">Remove Response</button><br/><br/>
+
+                <a data-tip data-for={this.props.elemntName}>
+                    <button type="button" onClick={this.handleRandomClicked} className={this.props.random === true? "btn btn-success" : "btn btn-danger"}>Random</button>
+                </a>
+                <ReactTooltip id={this.props.elemntName} type='info'>
+                    <p className="toolkit_info">Enable/Disable Random Answer feature. When enabled,
+                        your service will always choose ONE random response from the responses list to send back</p>
+                </ReactTooltip>
             </div>
         )
     }

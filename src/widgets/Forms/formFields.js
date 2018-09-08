@@ -97,7 +97,10 @@ const FormFields = (props) => { //functional class
                         {createLabel(values.label, values.labelText, values.hover, values.labelTextOnHover , 'responses_List_id')}
                             <Respond
                                 arr={values.valuesArr}
+                                random={values.random}
                                 changeFunc = {respondChangeHandler}
+                                randomToggleFunc = {values.changeRandomFunc}
+                                elementName = {itemToBeRendered.id}
                             />
                     </div>
                 );
