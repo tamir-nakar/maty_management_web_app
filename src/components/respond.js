@@ -57,12 +57,22 @@ class Respond extends Component {
         ));
         return ( <div>
                 {inputs}
+                <h4>
                 <button type="button" onClick={this.handleAddResponse} className="btn btn-info">Add Response</button><span>  </span>
-                <button type="button" onClick={this.handleDeleteResponse} className="btn btn-info">Remove Response</button><br/><br/>
+                <button type="button" onClick={this.handleDeleteResponse} className="btn btn-info">Remove Response</button><span>  </span>
 
-                <a data-tip data-for={this.props.elemntName}>
-                    <button type="button" onClick={this.handleRandomClicked} className={this.props.random === true? "btn btn-success" : "btn btn-danger"}>Random</button>
-                </a>
+
+                    {/*<button type="button" onClick={this.handleRandomClicked} className={this.props.random === true? "btn btn-success" : "btn btn-danger"}>Random</button>*/}
+                    <span>
+
+                        <a data-tip data-for={this.props.elemntName}>
+                            <span onClick={this.handleRandomClicked} className={this.props.random === true? "badge badge-pill badge-primary" : "badge badge-pill badge-secondary"}>Random</span>
+                        </a>
+
+                    </span>
+                </h4>
+
+
                 <ReactTooltip id={this.props.elemntName} type='info'>
                     <p className="toolkit_info">Enable/Disable Random Answer feature. When enabled,
                         your service will always choose ONE random response from the responses list to send back</p>

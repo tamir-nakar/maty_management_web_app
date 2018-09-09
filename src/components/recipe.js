@@ -35,7 +35,7 @@ class Recipe extends Component {
 
         newFormData['Arguments']['argumentsArr'][argIndex][name]=
             !this.state.formData['Arguments']['argumentsArr'][argIndex][name];
-        
+
         this.setState({
             formData: newFormData
         });
@@ -108,22 +108,62 @@ class Recipe extends Component {
 
     submitForm = (event) => { //todo - send JSON to remote server
         event.preventDefault();
-        console.log("in submit form");
 
         let dataToSubmit ={};
         const form = this.state.formData;
-        dataToSubmit['type'] = form.name.value;
-        dataToSubmit['instant_message'] = {};
-        dataToSubmit.instant_message['random'] = form.random.value;
-        dataToSubmit.instant_message['date_greet'] = {};
-        dataToSubmit.instant_message.date_greet['morning'] = form.dateGreet_morning.value;
-        dataToSubmit.instant_message.date_greet['noon'] = form.dateGreet_noon.value;
-        dataToSubmit.instant_message.date_greet['afternoon'] = form.dateGreet_afternoon.value;
-        dataToSubmit.instant_message.date_greet['evening'] = form.dateGreet_evening.value;
-        dataToSubmit.instant_message.date_greet['night'] = form.dateGreet_night.value;
-        dataToSubmit.instant_message['response'] = form.responses.valuesArr;
 
-        //console.log(JSON.stringify(dataToSubmit));
+
+
+        dataToSubmit['type'] = form.nameOfService.value;
+        dataToSubmit['recipe'] = {};
+        dataToSubmit.recipe['arguments'] = {};
+        // noinspection JSAnnotator
+        dataToSubmit.recipe.arguments['not_found'] ={};
+        // noinspection JSAnnotator
+        dataToSubmit.recipe.arguments.not_found['instant_message']={};
+        // noinspection JSAnnotator
+        dataToSubmit.recipe.arguments.not_found.instant_message['random']=form.not_found.random;
+        // noinspection JSAnnotator
+        dataToSubmit.recipe.arguments.not_found.instant_message['response']=form.not_found.valuesArr;
+
+        form.Arguments.argumentsArr.map( (arg, i) => {
+
+            // noinspection JSAnnotator
+            dataToSubmit.recipe.arguments[arg.name] = {};
+            // noinspection JSAnnotator
+            dataToSubmit.recipe.arguments[arg.name]['to_split'] = arg.toSplit;
+            // noinspection JSAnnotator
+            dataToSubmit.recipe.arguments[arg.name]['not_match'] = {};
+            // noinspection JSAnnotator
+            dataToSubmit.recipe.arguments[arg.name]['not_match']['instant_message'] ={};
+            // noinspection JSAnnotator
+            dataToSubmit.recipe.arguments[arg.name]['not_match']['instant_message']['random'] =arg.split_random;
+            // noinspection JSAnnotator
+            dataToSubmit.recipe.arguments[arg.name]['not_match']['instant_message']['response'] =arg.split_faild_responses;
+            // noinspection JSAnnotator
+            dataToSubmit.recipe.arguments[arg.name]['match'] = {};
+            // noinspection JSAnnotator
+            dataToSubmit.recipe.arguments[arg.name]['match']['query'] = arg.query;
+            // noinspection JSAnnotator
+            dataToSubmit.recipe.arguments[arg.name]['match']['empty_result'] = {};
+            // noinspection JSAnnotator
+            dataToSubmit.recipe.arguments[arg.name]['match']['empty_result']['instant_message'] = {};
+            // noinspection JSAnnotator
+            dataToSubmit.recipe.arguments[arg.name]['match']['empty_result']['instant_message']['random'] =arg.query_success_random;
+            // noinspection JSAnnotator
+            dataToSubmit.recipe.arguments[arg.name]['match']['empty_result']['instant_message']['response'] =arg.query_success_responses;
+            // noinspection JSAnnotator
+            dataToSubmit.recipe.arguments[arg.name]['match']['instant_message'] = {};
+            // noinspection JSAnnotator
+            dataToSubmit.recipe.arguments[arg.name]['match']['instant_message']['random'] = arg.query_failed_random;
+            // noinspection JSAnnotator
+            dataToSubmit.recipe.arguments[arg.name]['match']['instant_message']['response'] = arg.split_faild_responses;
+
+        });
+
+
+
+        console.log(JSON.stringify(dataToSubmit));
         fetch('https://b6e34998.ngrok.io/rule', {
             method: 'POST',
             headers: {
@@ -135,31 +175,6 @@ class Recipe extends Component {
 
     };
 
-    handleAddResponse = () => {
-
-        const newResponse = {
-            messaging_type:'RESPONSE',
-            message:''
-        };
-
-        const newFormData = this.state.formData;
-        newFormData.responses.valuesArr.push(newResponse);
-        this.setState({
-            formData: newFormData
-        });
-    };
-
-    handleDeleteResponse = (event) => {
-
-        if(this.state.formData.responses.valuesArr.length === 1)
-            return;
-
-        const newFormData = this.state.formData;
-        newFormData.responses.valuesArr.pop();
-        this.setState({
-            formData: newFormData
-        });
-    };
 
     updateForm = (newFormData) => {
 
