@@ -42,6 +42,18 @@ class Recipe extends Component {
 
     };
 
+    toggleArgumentHidden = (argIndex) => {
+
+        const newFormData = this.state.formData;
+
+        newFormData['Arguments']['argumentsArr'][argIndex]['hidden']=
+            !this.state.formData['Arguments']['argumentsArr'][argIndex]['hidden'];
+
+        this.setState({
+            formData: newFormData
+        });
+    };
+
     state = {
         formData: {
             nameOfService: { //type of the service (also the name of the JSON) e.i : greeting,
@@ -80,6 +92,7 @@ class Recipe extends Component {
                 labelTextOnHover: 'Customise your Recipe service',
                 visibility: true,
                 argumentsArr:[{
+                    hidden: false,
                     name:'',
                     toSplit:'',
                     split_faild_responses:[{
@@ -101,6 +114,7 @@ class Recipe extends Component {
                     query_failed_random: false,
                 }],
                 changeRandomFunc:this.toggleArgumentElementRandom,
+                toggleHiddenFunc:this.toggleArgumentHidden,
             },
 
         }
@@ -174,7 +188,6 @@ class Recipe extends Component {
         })
 
     };
-
 
     updateForm = (newFormData) => {
 

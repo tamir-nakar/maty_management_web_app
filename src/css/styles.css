@@ -21,9 +21,22 @@ body {
     padding: 25px 10px 10px;
 
 }
+.label_arg{
+
+    color:#2f6193;
+
+}
+
+/*.label_arg :hover{*/
+
+    /*color:red;*/
+
+/*}*/
 .form_element {
+    //color:#2f6193;
     margin: 20px 0;
 }
+
 
 .form_element label {
      display: block;

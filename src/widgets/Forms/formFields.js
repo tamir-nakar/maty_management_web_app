@@ -116,6 +116,7 @@ const FormFields = (props) => { //functional class
                             changeFunc = {argumentChangeHandler}
                             respondsChangeFunc = {argumentInnerResponseHandler}
                             randomToggleFunc = {values.changeRandomFunc}
+                            hiddenToggleFunc={values.toggleHiddenFunc}
                             elementName={itemToBeRendered.id}
                         />
                     </div>
