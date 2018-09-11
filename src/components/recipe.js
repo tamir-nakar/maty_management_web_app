@@ -145,7 +145,7 @@ class Recipe extends Component {
             // noinspection JSAnnotator
             dataToSubmit.recipe.arguments[arg.name] = {};
             // noinspection JSAnnotator
-            dataToSubmit.recipe.arguments[arg.name]['to_split'] = arg.toSplit;
+            dataToSubmit.recipe.arguments[arg.name]['to_split'] = parseInt(arg.toSplit);
             // noinspection JSAnnotator
             dataToSubmit.recipe.arguments[arg.name]['not_match'] = {};
             // noinspection JSAnnotator
@@ -163,22 +163,22 @@ class Recipe extends Component {
             // noinspection JSAnnotator
             dataToSubmit.recipe.arguments[arg.name]['match']['empty_result']['instant_message'] = {};
             // noinspection JSAnnotator
-            dataToSubmit.recipe.arguments[arg.name]['match']['empty_result']['instant_message']['random'] =arg.query_success_random;
+            dataToSubmit.recipe.arguments[arg.name]['match']['empty_result']['instant_message']['random'] =arg.query_failed_random;
             // noinspection JSAnnotator
-            dataToSubmit.recipe.arguments[arg.name]['match']['empty_result']['instant_message']['response'] =arg.query_success_responses;
+            dataToSubmit.recipe.arguments[arg.name]['match']['empty_result']['instant_message']['response'] =arg.query_faild_responses;
             // noinspection JSAnnotator
             dataToSubmit.recipe.arguments[arg.name]['match']['instant_message'] = {};
             // noinspection JSAnnotator
-            dataToSubmit.recipe.arguments[arg.name]['match']['instant_message']['random'] = arg.query_failed_random;
+            dataToSubmit.recipe.arguments[arg.name]['match']['instant_message']['random'] = arg.query_success_random;
             // noinspection JSAnnotator
-            dataToSubmit.recipe.arguments[arg.name]['match']['instant_message']['response'] = arg.split_faild_responses;
+            dataToSubmit.recipe.arguments[arg.name]['match']['instant_message']['response'] = arg.query_success_responses;
 
         });
 
 
 
         console.log(JSON.stringify(dataToSubmit));
-        fetch('https://b6e34998.ngrok.io/rule', {
+        fetch('https://f35072ad.ngrok.io/rule', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

@@ -48,7 +48,7 @@ class ExternalService extends Component {
         dataToSubmit['service_url'] = form.url.value;
 
         //console.log(JSON.stringify(dataToSubmit));
-        fetch('https://b6e34998.ngrok.io/rule', {
+        fetch('https://f35072ad.ngrok.io/rule', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

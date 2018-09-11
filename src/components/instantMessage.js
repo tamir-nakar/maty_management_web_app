@@ -146,7 +146,7 @@ class InstantMessage extends Component {
 
         //console.log(JSON.stringify(dataToSubmit));
         console.log(dataToSubmit);
-        fetch('https://b6e34998.ngrok.io/rule', {
+        fetch('https://f35072ad.ngrok.io/rule', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
