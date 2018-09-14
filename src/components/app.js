@@ -2,8 +2,10 @@ import React, {Component} from 'react';
 import ServiceTypeManager from "../components/serviceTypeManager"
 import Header from './header.js';
 import Menu from '../components/menu'
+import Table from '../components/table'
 import '../css/styles.css'
 import ExternalService from "./externalService";
+import TableManager from "./tableManager";
 
 
 
@@ -17,7 +19,7 @@ class App extends Component {
 
         switch(newSubject) {
             case('external_service'):
-                newSubject = <ExternalService/>;
+                newSubject = <TableManager/>;
                 break;
             // case('ExternalService'):
             //     newSubject = <ExternalService/> ;

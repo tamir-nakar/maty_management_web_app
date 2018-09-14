@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="040936e4-2dc3-4bd5-b983-bacf5a45433d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/menu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/menu.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -19,16 +20,17 @@
     <session id="232704598">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="13" />
-          <entry key="project.open.time.1" value="2" />
+          <entry key="project.closed" value="15" />
+          <entry key="project.open.time.1" value="3" />
           <entry key="project.open.time.10" value="3" />
           <entry key="project.open.time.11" value="4" />
           <entry key="project.open.time.12" value="2" />
           <entry key="project.open.time.18" value="1" />
+          <entry key="project.open.time.22" value="1" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="15" />
+          <entry key="project.open.time.9" value="2" />
+          <entry key="project.opened" value="18" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -36,7 +38,7 @@
           <entry key="InstantMessage" value="1" />
           <entry key="css" value="11" />
           <entry key="html" value="3" />
-          <entry key="js" value="33" />
+          <entry key="js" value="41" />
           <entry key="json" value="2" />
         </counts>
       </usages-collector>
@@ -46,84 +48,53 @@
           <entry key="ECMAScript 6" value="1" />
           <entry key="HTML" value="3" />
           <entry key="JSON" value="2" />
-          <entry key="JavaScript" value="33" />
+          <entry key="JavaScript" value="41" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="1922" />
           <entry key="html" value="99" />
-          <entry key="js" value="20487" />
+          <entry key="js" value="24435" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="1922" />
           <entry key="HTML" value="99" />
-          <entry key="JavaScript" value="20487" />
+          <entry key="JavaScript" value="24435" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/recipe.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3402">
-              <caret line="160" column="39" lean-forward="true" selection-start-line="160" selection-start-column="39" selection-end-line="160" selection-end-column="39" />
-              <folding>
-                <element signature="e#0#40#0" expanded="true" />
-                <element signature="e#208#423#0" />
-                <element signature="e#488#1211#0" />
-                <element signature="e#524#937#0" />
-                <element signature="n#!!block;n#render#0;n#Recipe#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/components/app.js">
+        <entry file="file://$PROJECT_DIR$/src/components/table.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="810">
-              <caret line="36" column="8" lean-forward="true" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="8" />
+            <state relative-caret-position="162">
+              <caret line="106" column="122" selection-start-line="106" selection-start-column="122" selection-end-line="106" selection-end-column="122" />
               <folding>
-                <element signature="e#0#39#0" expanded="true" />
+                <element signature="e#0#40#0" expanded="true" />
+                <element signature="e#2131#2173#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/menu.js">
+        <entry file="file://$PROJECT_DIR$/src/components/tableManager.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="20" column="64" selection-start-line="20" selection-start-column="64" selection-end-line="20" selection-end-column="64" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/externalService.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
-              <caret line="50" column="40" selection-start-line="50" selection-start-column="40" selection-end-line="50" selection-end-column="40" />
+            <state relative-caret-position="113">
+              <caret line="82" column="128" selection-start-line="82" selection-start-column="128" selection-end-line="82" selection-end-column="143" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
-                <element signature="e#766#1375#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/instantMessage.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-891">
-              <caret line="6" column="52" lean-forward="true" selection-start-line="6" selection-start-column="52" selection-end-line="6" selection-end-column="52" />
-              <folding>
-                <element signature="e#0#40#0" expanded="true" />
+                <element signature="e#230#1250#0" />
+                <element signature="e#487#1023#0" />
+                <element signature="e#760#1231#0" />
+                <element signature="e#5711#6240#0" />
+                <element signature="e#6090#6135#0" />
+                <element signature="e#6146#6199#0" />
               </folding>
             </state>
           </provider>
@@ -141,36 +112,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>font-size</find>
-      <find>lable</find>
-      <find>label_</find>
-      <find>green</find>
-      <find>header</find>
-      <find>toolT</find>
-      <find>radi</find>
-      <find>text</find>
-      <find>show</find>
-      <find>create</find>
-      <find>add resp</find>
-      <find>fade</find>
-      <find>setS</find>
-      <find>label_gre</find>
-      <find>a</find>
-      <find>label</find>
-      <find>input</find>
-      <find>update</find>
-      <find>state</find>
-      <find>togg</find>
       <find>respon</find>
       <find>etS</find>
       <find>random</find>
       <find>arguments</find>
-      <find>map</find>
       <find>orm</find>
       <find>form</find>
       <find>color</find>
       <find>label_ar</find>
       <find>hover</find>
+      <find>add</find>
+      <find>width</find>
+      <find>on</find>
+      <find>onGridRowsUpdated</find>
+      <find>update</find>
+      <find>slice</find>
+      <find>setState</find>
+      <find>this.props.</find>
+      <find>map</find>
+      <find>props</find>
+      <find>creat</find>
+      <find>createR</find>
+      <find>keyd</find>
+      <find>state</find>
+      <find>createRo</find>
+      <find>console.log</find>
+      <find>createCols</find>
+      <find>null</find>
+      <find>style</find>
+      <find>canvas</find>
+      <find>this.cols</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -195,6 +166,8 @@
         <option value="$PROJECT_DIR$/src/components/serviceTypeManager.js" />
         <option value="$PROJECT_DIR$/src/components/menu.js" />
         <option value="$PROJECT_DIR$/src/components/app.js" />
+        <option value="$PROJECT_DIR$/src/components/tableManager.js" />
+        <option value="$PROJECT_DIR$/src/components/table.js" />
       </list>
     </option>
   </component>
@@ -228,6 +201,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -269,7 +243,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -318,11 +291,14 @@
       <workItem from="1536421335168" duration="13990000" />
       <workItem from="1536481147484" duration="12455000" />
       <workItem from="1536653666057" duration="7406000" />
+      <workItem from="1536870412554" duration="12000" />
+      <workItem from="1536870523863" duration="18000" />
+      <workItem from="1536916677486" duration="25783000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="153890000" />
+    <option name="totallyTimeSpent" value="179703000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -412,43 +388,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/respond.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="68" column="139" selection-start-line="68" selection-start-column="139" selection-end-line="68" selection-end-column="139" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/argument.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="58" column="83" selection-start-line="58" selection-start-column="83" selection-end-line="58" selection-end-column="83" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/widgets/Forms/formFields.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="118" column="44" selection-start-line="118" selection-start-column="28" selection-end-line="118" selection-end-column="44" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/instantMessage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-891">
-          <caret line="6" column="52" lean-forward="true" selection-start-line="6" selection-start-column="52" selection-end-line="6" selection-end-column="52" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -456,15 +399,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
           <caret line="41" column="32" selection-start-line="41" selection-start-column="18" selection-end-line="41" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/externalService.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
+        <state relative-caret-position="972">
           <caret line="50" column="40" selection-start-line="50" selection-start-column="40" selection-end-line="50" selection-end-column="40" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
@@ -473,10 +413,67 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/menu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="20" column="64" selection-start-line="20" selection-start-column="64" selection-end-line="20" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/widgets/Forms/formFields.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/instantMessage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="183" column="25" selection-start-line="183" selection-start-column="25" selection-end-line="183" selection-end-column="25" />
+          <folding>
+            <element signature="e#216#432#0" />
+            <element signature="e#379#424#0" />
+            <element signature="e#859#1009#0" />
+            <element signature="e#1048#1664#0" />
+            <element signature="e#1545#1650#0" />
+            <element signature="e#1678#1728#0" />
+            <element signature="e#1824#2163#0" />
+            <element signature="e#2044#2149#0" />
+            <element signature="e#2193#2526#0" />
+            <element signature="e#2410#2512#0" />
+            <element signature="e#2561#2904#0" />
+            <element signature="e#2783#2890#0" />
+            <element signature="e#2937#3276#0" />
+            <element signature="e#3157#3262#0" />
+            <element signature="e#3307#3642#0" />
+            <element signature="e#3525#3628#0" />
+            <element signature="e#3730#4327#0" />
+            <element signature="e#4116#4215#0" />
+            <element signature="e#4117#4214#0" />
+            <element signature="e#4374#5672#0" />
+            <element signature="e#5442#5664#0" />
+            <element signature="e#5493#5606#0" />
+            <element signature="e#5711#6240#0" />
+            <element signature="e#5826#5982#0" />
+            <element signature="e#5881#5972#0" />
+            <element signature="e#6090#6135#0" />
+            <element signature="e#6146#6199#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/respond.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="61">
+          <caret line="61" column="31" selection-start-line="61" selection-end-line="62" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/recipe.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3402">
-          <caret line="160" column="39" lean-forward="true" selection-start-line="160" selection-start-column="39" selection-end-line="160" selection-end-column="39" />
+        <state relative-caret-position="151">
+          <caret line="141" lean-forward="true" selection-start-line="141" selection-end-line="141" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
             <element signature="e#208#423#0" />
@@ -487,19 +484,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/menu.js">
+    <entry file="file://$PROJECT_DIR$/src/components/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="20" column="64" selection-start-line="20" selection-start-column="64" selection-end-line="20" selection-end-column="64" />
+        <state relative-caret-position="486">
+          <caret line="21" column="43" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/app.js">
+    <entry file="file://$PROJECT_DIR$/node_modules/react-data-grid/dist/react-data-grid.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="36" column="8" lean-forward="true" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="8" />
+        <state relative-caret-position="-122332">
+          <caret line="9213" lean-forward="true" selection-start-line="9213" selection-end-line="9213" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/react-data-grid/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="41" lean-forward="true" selection-start-column="41" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/tableManager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="82" column="128" selection-start-line="82" selection-start-column="128" selection-end-line="82" selection-end-column="143" />
           <folding>
-            <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#0#40#0" expanded="true" />
+            <element signature="e#230#1250#0" />
+            <element signature="e#487#1023#0" />
+            <element signature="e#760#1231#0" />
+            <element signature="e#5711#6240#0" />
+            <element signature="e#6090#6135#0" />
+            <element signature="e#6146#6199#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/table.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="106" column="122" selection-start-line="106" selection-start-column="122" selection-end-line="106" selection-end-column="122" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+            <element signature="e#2131#2173#0" />
           </folding>
         </state>
       </provider>
