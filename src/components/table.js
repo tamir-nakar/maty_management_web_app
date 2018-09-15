@@ -80,17 +80,8 @@ class Table extends React.Component {
     handleSubmit = () => {
 
         let dataToSubmit_createTable ={};
-        dataToSubmit_createTable['table_name'] = this.props.table_name;
+        dataToSubmit_createTable['table_name'] = this.props.tableName;
         dataToSubmit_createTable['table_cols'] = this.props.colsArr;
-
-            // fetch('https://f35072ad.ngrok.io/table', {
-            //     method: 'POST',
-            //     headers: {
-            //         'Accept': 'application/json',
-            //         'Content-Type': 'application/json',
-            //     },
-            //     body: JSON.stringify(dataToSubmit_createTable)
-            // });
 
         let dataToSubmit_supplyRows ={};
         dataToSubmit_supplyRows['table_rows'] = [];
@@ -107,16 +98,24 @@ class Table extends React.Component {
             dataToSubmit_supplyRows['table_rows'].push(newRow);
         }
 
-        console.log(JSON.stringify(dataToSubmit_supplyRows));
+            fetch('https://52939a87.ngrok.io/table', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(dataToSubmit_createTable)
+            }).then( (response)=> {console.log(response.status); if(response.status === 200) fetch(`https://52939a87.ngrok.io/table/${this.props.tableName}`, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(dataToSubmit_supplyRows)
+            })});
 
-        // fetch('https://f35072ad.ngrok.io/table/my_new_table', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Accept': 'application/json',
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify(dataToSubmit_supplyRows)
-        // });
+        //console.log(JSON.stringify(dataToSubmit_createTable));
+
     };
 
     handleGridRowsUpdated = ({ fromRow, toRow, updated }) => {

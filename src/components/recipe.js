@@ -178,7 +178,7 @@ class Recipe extends Component {
 
 
         console.log(JSON.stringify(dataToSubmit));
-        fetch('https://f35072ad.ngrok.io/rule', {
+        fetch('https://52939a87.ngrok.io/rule', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
