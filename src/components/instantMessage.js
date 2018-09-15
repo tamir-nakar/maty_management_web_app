@@ -157,8 +157,6 @@ class InstantMessage extends Component {
 
     };
 
-
-
     updateForm = (newFormData) => {
 
         const showOrHideDateGreetOptions = newFormData['dateGreet'].value;

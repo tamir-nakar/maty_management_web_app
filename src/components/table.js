@@ -77,6 +77,48 @@ class Table extends React.Component {
         this.setState(newState);
     };
 
+    handleSubmit = () => {
+
+        let dataToSubmit_createTable ={};
+        dataToSubmit_createTable['table_name'] = this.props.table_name;
+        dataToSubmit_createTable['table_cols'] = this.props.colsArr;
+
+            // fetch('https://f35072ad.ngrok.io/table', {
+            //     method: 'POST',
+            //     headers: {
+            //         'Accept': 'application/json',
+            //         'Content-Type': 'application/json',
+            //     },
+            //     body: JSON.stringify(dataToSubmit_createTable)
+            // });
+
+        let dataToSubmit_supplyRows ={};
+        dataToSubmit_supplyRows['table_rows'] = [];
+
+        for (let i = 0; i < this.state.rows.length; i++) {
+            // every time 1 row
+            let currentRowToCpy = this.state.rows[i];
+
+            let newRow = Object.keys(currentRowToCpy).map(function(key) {
+                return currentRowToCpy[key];
+            });
+
+
+            dataToSubmit_supplyRows['table_rows'].push(newRow);
+        }
+
+        console.log(JSON.stringify(dataToSubmit_supplyRows));
+
+        // fetch('https://f35072ad.ngrok.io/table/my_new_table', {
+        //     method: 'POST',
+        //     headers: {
+        //         'Accept': 'application/json',
+        //         'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify(dataToSubmit_supplyRows)
+        // });
+    };
+
     handleGridRowsUpdated = ({ fromRow, toRow, updated }) => {
         let rows = this.state.rows.slice();
 
@@ -105,7 +147,9 @@ class Table extends React.Component {
                     onGridRowsUpdated={this.handleGridRowsUpdated}
                 />
                 <button type="button" onClick={this.handleAddRow} className="btn btn-info">ADD ROW</button><span>  </span>
-                <button type="button" onClick={this.handleRemoveRow} className="btn btn-info">REMOVE ROW</button>
+                <button type="button" onClick={this.handleRemoveRow} className="btn btn-info">REMOVE ROW</button><span>  </span>
+                <button type="button" onClick={this.handleSubmit} className="btn btn-success">SUBMIT TABLE</button>
+
 
             </div>
 

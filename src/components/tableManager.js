@@ -7,6 +7,20 @@ class TableManager extends React.Component {
 
     state = {
         formData: {
+            tableName: {
+                element: 'input',
+                value: '',
+                label: true,
+                labelText: 'Table Name',
+                hover: true,
+                labelTextOnHover: 'Give a name for your new table',
+                visibility: true,
+                config: {
+                    name: 'table_name_input',
+                    type: 'text',
+                    placeholder: ''
+                }
+            },
             cols: {
                 element: 'input',
                 value: '',
@@ -65,7 +79,7 @@ class TableManager extends React.Component {
         {
             return (<p/>);
         }
-        else return (<Table colsArr={this.state.colsArr} numOfRows={this.state.numOfRows}/>)
+        else return (<Table colsArr={this.state.colsArr} numOfRows={this.state.numOfRows} tableName={this.state.formData.tableName.value}/>)
 
     };
 
