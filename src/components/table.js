@@ -103,7 +103,7 @@ class Table extends React.Component {
         }
         //until here we created the 2 data structures to submit
 
-        fetch('https://52939a87.ngrok.io/table', {
+        fetch(`${this.props.serverLink}/table`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -114,7 +114,7 @@ class Table extends React.Component {
             .then( (response)=> {
                 //console.log(response.status);
                 if(response.status === 200)
-                    fetch(`https://52939a87.ngrok.io/table/${this.props.tableName}`, {
+                    fetch(`${this.props.serverLink}/table/${this.props.tableName}`, {
                         method: 'POST',
                         headers: {
                             'Accept': 'application/json',

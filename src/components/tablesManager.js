@@ -40,10 +40,10 @@ class TablesManager extends React.Component {
         let chosenComponent = null;
         switch(this.state.formData.service.value){
             case('AddNewTable'):
-                chosenComponent = <AddNewTable/> ;
+                chosenComponent = <AddNewTable serverLink={this.props.serverLink}/> ;
                 break;
             case('EditExistingTable'):
-                chosenComponent = <EditNewTable/> ;
+                chosenComponent = <EditNewTable serverLink={this.props.serverLink}/> ;
                 break;
             default:
                 chosenComponent = null;
@@ -69,7 +69,8 @@ class TablesManager extends React.Component {
                     />
 
                 </form><br/>
-                {this.getComponent()};
+                {this.getComponent()}
+                <img src={require("../images/db.png")} />
             </div>
         )
     }

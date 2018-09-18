@@ -37,7 +37,7 @@ class EditExistingTable extends React.Component {
         let newState = this.state;
         let optionsArr = newState.formData.tablesNames.config.options;
         //todo - use this code to fetch the json from the server
-        // fetch('http://example.com/tables.json')
+        // fetch(`${this.props.serverLink}/tables.json`)
         //     .then(function(response) {
         //         return response.json();
         //     })
@@ -111,7 +111,7 @@ class EditExistingTable extends React.Component {
             let currentTable = this.state.tablesData[this.state.formData.tablesNames.value];
 
             //todo - use this code to fetch the cols of the current table
-            // fetch(`http://example.com/tables/${currentTable.table_name}`)
+            // fetch(`${this.props.serverLink}/tables/${currentTable.table_name}`)
             //     .then(function(response) {
             //         return response.json();
             //     })

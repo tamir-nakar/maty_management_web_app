@@ -2,53 +2,65 @@ import React, {Component} from 'react';
 import RulesManager from "./rulesManager"
 import Header from './header.js';
 import Menu from '../components/menu'
-import Table from '../components/table'
 import '../css/styles.css'
-import ExternalService from "./externalService";
-import AddNewTable from "./addNewTable";
 import TablesManager from "./tablesManager";
-
-
+import Login from "./login";
+import Train from "./train";
 
 class App extends Component {
 
-    state = {
-        subject: <RulesManager/>,
+    changeLinkField =(newVal) => {
+        console.log(`changelinkField got the val of ${newVal}`);
+        let newState = this.state;
+        newState['link'] = newVal;
+        newState['subject'] = <Login changeUrlFunc={this.changeLinkField} serverLink={newVal}/>;
+        this.setState(newState);
     };
-
+    //triggered by clicking on the menu.
     changeSubject = (newSubject) => {
 
+
+        //alert("in changing subject: newSubject is--- " + newSubject + " serverLink is --- "+ serverLink);
         switch(newSubject) {
-            case('external_service'):
-                newSubject = <TablesManager/>;
+            case('login'):
+                newSubject = <Login changeUrlFunc={this.changeLinkField} serverLink={this.state.link}/>;
                 break;
-            // case('ExternalService'):
-            //     newSubject = <ExternalService/> ;
-            //     break;
-            // case('Recipe'):
-            //     newSubject = <Recipe/> ;
-            //     break;
+            case('rules'):
+                newSubject = <RulesManager serverLink={this.state.link}/>;
+                break;
+            case('data_management'):
+                newSubject = <TablesManager serverLink={this.state.link}/>;
+                break;
+            case('train'):
+                newSubject = <Train serverLink={this.state.link}/>;
+                break;
             default:
                 newSubject = null;
         }
 
-                console.log("going to change state to:" + newSubject);
+        this.setState({
+            subject : newSubject,
+        });
 
-                this.setState({
-                    subject : newSubject
-                });
-        
+    };
+
+    state = {
+
+        subject: <Login changeUrlFunc={this.changeLinkField} />,
+        link: null
     };
 
 
+
+
     render() {
+        //console.log(`app was rendered with link: ${this.state.link}`);
         return (
             <div>
                 <Menu changeSubjectFunc={this.changeSubject}/>
                 <Header/>
                 <div className="backGround_front" align="center">
                     {this.state.subject}
-
                 </div>
 
             </div>

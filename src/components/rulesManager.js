@@ -40,13 +40,13 @@ class RulesManager extends React.Component {
         let chosenComponent = null;
         switch(this.state.formData.service.value){
             case('InstantMessage'):
-                chosenComponent = <InstantMessage/> ;
+                chosenComponent = <InstantMessage serverLink={this.props.serverLink}/> ;
                 break;
             case('ExternalService'):
-                chosenComponent = <ExternalService/> ;
+                chosenComponent = <ExternalService serverLink={this.props.serverLink}/> ;
                 break;
             case('Recipe'):
-                chosenComponent = <Recipe/> ;
+                chosenComponent = <Recipe serverLink={this.props.serverLink}/> ;
                 break;
             default:
                 chosenComponent = null;
@@ -74,7 +74,8 @@ class RulesManager extends React.Component {
                     />
 
                 </form><br/>
-                {this.getComponent()};
+                {this.getComponent()}
+                <img src={require("../images/rules.png")} />
             </div>
         )
     }
