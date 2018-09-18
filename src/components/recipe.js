@@ -144,16 +144,19 @@ class Recipe extends Component {
 
             // noinspection JSAnnotator
             dataToSubmit.recipe.arguments[arg.name] = {};
-            // noinspection JSAnnotator
-            dataToSubmit.recipe.arguments[arg.name]['to_split'] = parseInt(arg.toSplit);
-            // noinspection JSAnnotator
-            dataToSubmit.recipe.arguments[arg.name]['not_match'] = {};
-            // noinspection JSAnnotator
-            dataToSubmit.recipe.arguments[arg.name]['not_match']['instant_message'] ={};
-            // noinspection JSAnnotator
-            dataToSubmit.recipe.arguments[arg.name]['not_match']['instant_message']['random'] =arg.split_random;
-            // noinspection JSAnnotator
-            dataToSubmit.recipe.arguments[arg.name]['not_match']['instant_message']['response'] =arg.split_faild_responses;
+
+            if(arg.toSplit !== ''){
+                // noinspection JSAnnotator
+                dataToSubmit.recipe.arguments[arg.name]['to_split'] = parseInt(arg.toSplit);
+                // noinspection JSAnnotator
+                dataToSubmit.recipe.arguments[arg.name]['not_match'] = {};
+                // noinspection JSAnnotator
+                dataToSubmit.recipe.arguments[arg.name]['not_match']['instant_message'] ={};
+                // noinspection JSAnnotator
+                dataToSubmit.recipe.arguments[arg.name]['not_match']['instant_message']['random'] =arg.split_random;
+                // noinspection JSAnnotator
+                dataToSubmit.recipe.arguments[arg.name]['not_match']['instant_message']['response'] =arg.split_faild_responses;
+            }
             // noinspection JSAnnotator
             dataToSubmit.recipe.arguments[arg.name]['match'] = {};
             // noinspection JSAnnotator
@@ -172,7 +175,6 @@ class Recipe extends Component {
             dataToSubmit.recipe.arguments[arg.name]['match']['instant_message']['random'] = arg.query_success_random;
             // noinspection JSAnnotator
             dataToSubmit.recipe.arguments[arg.name]['match']['instant_message']['response'] = arg.query_success_responses;
-
         });
 
 
