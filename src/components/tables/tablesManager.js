@@ -1,9 +1,9 @@
 import React from 'react';
-import '../css/styles.css';
-import FormFields from "../widgets/Forms/formFields";
-import InstantMessage from "./instantMessage";
-import ExternalService from "./externalService";
-import Recipe from "./recipe";
+import '../../css/styles.css';
+import FormFields from "../../widgets/Forms/formFields";
+import InstantMessage from "../rules/instantMessage";
+import ExternalService from "../rules/externalService";
+import Recipe from "../rules/recipe";
 import AddNewTable from "./addNewTable";
 import EditNewTable from "./editExisitingTable";
 
@@ -70,7 +70,7 @@ class TablesManager extends React.Component {
 
                 </form><br/>
                 {this.getComponent()}
-                <img src={require("../images/db.png")} />
+                <img src={require("../../images/db.png")} />
             </div>
         )
     }

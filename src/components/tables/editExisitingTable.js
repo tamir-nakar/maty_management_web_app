@@ -1,6 +1,6 @@
 import React from 'react';
-import FormFields from "../widgets/Forms/formFields";
-import '../css/styles.css'
+import FormFields from "../../widgets/Forms/formFields";
+import '../../css/styles.css'
 import Table from "./table";
 
 class EditExistingTable extends React.Component {

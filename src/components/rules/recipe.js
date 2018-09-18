@@ -1,6 +1,6 @@
 import React, { Component} from 'react';
-import FormFields from "../widgets/Forms/formFields";
-import '../css/styles.css'
+import FormFields from "../../widgets/Forms/formFields";
+import '../../css/styles.css'
 
 class Recipe extends Component {
 

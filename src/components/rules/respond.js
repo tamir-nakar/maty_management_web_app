@@ -1,6 +1,6 @@
 import React, { Component} from 'react';
-import '../css/styles.css'
-import '../css/respond.css'
+import '../../css/styles.css'
+import '../../css/respond.css'
 import ReactTooltip from "react-tooltip";
 
 class Respond extends Component {

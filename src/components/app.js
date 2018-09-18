@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import RulesManager from "./rulesManager"
+import RulesManager from "./rules/rulesManager"
 import Header from './header.js';
 import Menu from '../components/menu'
 import '../css/styles.css'
-import TablesManager from "./tablesManager";
+import TablesManager from "./tables/tablesManager";
 import Login from "./login";
 import Train from "./train";
 

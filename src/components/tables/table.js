@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDataGrid from 'react-data-grid';
 import update from 'immutability-helper';
 //import ReactDataGridPlugins from 'react-data-grid/addons';
-import '../css/styles.css'
+import '../../css/styles.css'
 
 class Table extends React.Component {
 

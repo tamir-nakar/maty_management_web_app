@@ -1,6 +1,6 @@
 import React from 'react';
-import '../css/styles.css';
-import FormFields from "../widgets/Forms/formFields";
+import '../../css/styles.css';
+import FormFields from "../../widgets/Forms/formFields";
 import InstantMessage from "./instantMessage";
 import ExternalService from "./externalService";
 import Recipe from "./recipe";
@@ -75,7 +75,7 @@ class RulesManager extends React.Component {
 
                 </form><br/>
                 {this.getComponent()}
-                <img src={require("../images/rules.png")} />
+                <img src={require("../../images/rules.png")} />
             </div>
         )
     }

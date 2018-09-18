@@ -1,6 +1,6 @@
 import React from 'react';
-import Respond from '../../components/respond';
-import Argument from '../../components/argument';
+import Respond from '../../components/rules/respond';
+import Argument from '../../components/rules/argument';
 
 import '../../css/styles.css';
 import ReactTooltip from 'react-tooltip'
