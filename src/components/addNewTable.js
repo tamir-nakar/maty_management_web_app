@@ -3,7 +3,7 @@ import FormFields from "../widgets/Forms/formFields";
 import '../css/styles.css'
 import Table from "./table";
 
-class TableManager extends React.Component {
+class AddNewTable extends React.Component {
 
     state = {
         formData: {
@@ -75,6 +75,7 @@ class TableManager extends React.Component {
     };
 
     renderIfneeded(){
+        console.log(this.state.colsArr);
         if(this.state.colsArr === null || this.state.numOfRows === null)
         {
             return (<p/>);
@@ -104,4 +105,4 @@ class TableManager extends React.Component {
     }
 }
 
-export default TableManager;
+export default AddNewTable;

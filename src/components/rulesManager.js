@@ -5,7 +5,7 @@ import InstantMessage from "./instantMessage";
 import ExternalService from "./externalService";
 import Recipe from "./recipe";
 
-class ServiceTypeManager extends React.Component {
+class RulesManager extends React.Component {
 
     state = {
         formData: {
@@ -79,4 +79,4 @@ class ServiceTypeManager extends React.Component {
         )
     }
 }
-export default ServiceTypeManager;
+export default RulesManager;

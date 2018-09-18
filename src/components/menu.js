@@ -1,7 +1,7 @@
 import { bubble as Menu } from 'react-burger-menu'
 import React, { Component} from 'react';
 import '../css/menu.css'
-import ServiceTypeManager from "./serviceTypeManager";
+import RulesManager from "./rulesManager";
 
 class BurgerMenu extends Component {
 

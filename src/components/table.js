@@ -15,6 +15,9 @@ class Table extends React.Component {
 
     createCols = () => {
 
+        // if(this.props.theRows)
+        //     return;
+
         let cols = [];
         this.props.colsArr.map( (colName, index) => {
 
@@ -22,7 +25,6 @@ class Table extends React.Component {
                 key: index,
                 name: colName,
                 editable: true,
-                //width: 100,
             })
         });
 
@@ -32,6 +34,10 @@ class Table extends React.Component {
 
     createRows = () => {
 
+        if(this.props.theRows){
+            this.state.rows = this.props.theRows;
+            return;
+        }
         let row = {};
         let rows = [];
 
@@ -51,7 +57,6 @@ class Table extends React.Component {
     state = {
         rows: null,
     };
-
 
     rowGetter = (i) => {
         return this.state.rows[i];
@@ -94,27 +99,38 @@ class Table extends React.Component {
                 return currentRowToCpy[key];
             });
 
-
             dataToSubmit_supplyRows['table_rows'].push(newRow);
         }
+        //until here we created the 2 data structures to submit
 
-            fetch('https://52939a87.ngrok.io/table', {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(dataToSubmit_createTable)
-            }).then( (response)=> {console.log(response.status); if(response.status === 200) fetch(`https://52939a87.ngrok.io/table/${this.props.tableName}`, {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(dataToSubmit_supplyRows)
-            })});
+        fetch('https://52939a87.ngrok.io/table', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(dataToSubmit_createTable)
+        })
+            .then( (response)=> {
+                //console.log(response.status);
+                if(response.status === 200)
+                    fetch(`https://52939a87.ngrok.io/table/${this.props.tableName}`, {
+                        method: 'POST',
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(dataToSubmit_supplyRows)
+                    })}).then( (response) =>{
+            if(response.status === 200)
+                alert(`The table ${this.props.table_name} was uploaded successfully`);
 
-        //console.log(JSON.stringify(dataToSubmit_createTable));
+            else
+                alert(`Error: ${response.json().message}`)
+
+            //todo navigae to same page
+
+        });
 
     };
 

@@ -1,25 +1,26 @@
 import React, {Component} from 'react';
-import ServiceTypeManager from "../components/serviceTypeManager"
+import RulesManager from "./rulesManager"
 import Header from './header.js';
 import Menu from '../components/menu'
 import Table from '../components/table'
 import '../css/styles.css'
 import ExternalService from "./externalService";
-import TableManager from "./tableManager";
+import AddNewTable from "./addNewTable";
+import TablesManager from "./tablesManager";
 
 
 
 class App extends Component {
 
     state = {
-        subject: <ServiceTypeManager/>,
+        subject: <RulesManager/>,
     };
 
     changeSubject = (newSubject) => {
 
         switch(newSubject) {
             case('external_service'):
-                newSubject = <TableManager/>;
+                newSubject = <TablesManager/>;
                 break;
             // case('ExternalService'):
             //     newSubject = <ExternalService/> ;
