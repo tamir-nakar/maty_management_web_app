@@ -68,6 +68,7 @@ class EditExistingTable extends React.Component {
 
         json.map( (table,index,) => {
             // an option looks like this: {val: 'AddNewTable', text: 'Add New Table'}
+            console.log("pushing");
             optionsArr.push({val:index, text: table.table_name});
         });
 
@@ -159,7 +160,7 @@ class EditExistingTable extends React.Component {
                 current_row_to_push ={};
             });
             console.log(theRows);
-            return (<Table colsArr={colsArr} theRows={theRows} numOfRows={this.state.numOfRows} tableName={currentTable.table_name} />)
+            return (<Table colsArr={colsArr} theRows={theRows} numOfRows={this.state.numOfRows} tableName={currentTable.table_name} serverLink={this.props.serverLink}/>)
         }
     };
 

@@ -52,7 +52,6 @@ class RulesManager extends React.Component {
                 chosenComponent = null;
         }
 
-        console.log("rendered");
         return(<div className="fadeinDown">{chosenComponent}</div> );
     }
 

@@ -10,10 +10,9 @@ class Respond extends Component {
             this.props.randomToggleFunc(this.props.elementName);
         }
         else{
-            console.log(this.props.parentIndex);
-            console.log(this.props.parentArgumentName);
+            //console.log(this.props.parentIndex);
+            //console.log(this.props.parentArgumentName);
             this.props.randomToggleFunc(this.props.parentIndex,this.props.parentArgumentName);
-            console.log("passed it");
         }
 
         this.props.changeFunc('event',-1,)

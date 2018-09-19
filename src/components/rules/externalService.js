@@ -40,7 +40,7 @@ class ExternalService extends Component {
 
     submitForm = (event) => { //todo - send JSON to remote server
         event.preventDefault();
-        console.log("in submit form");
+        //console.log("in submit form");
 
         let dataToSubmit ={};
         const form = this.state.formData;

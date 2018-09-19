@@ -70,17 +70,19 @@ class AddNewTable extends React.Component {
         let newState = this.state;
         newState['colsArr'] = cols.trim().split(' ');
         newState['numOfRows'] = this.state.formData.numOfRows.value;
-
+        newState.formData.numOfRows.visibility=false;
+        newState.formData.cols.visibility=false;
+        // newState.formData.tableName.visibility=false;
         this.setState(newState);
     };
 
     renderIfneeded(){
-        console.log(this.state.colsArr);
+        //console.log(this.state.colsArr);
         if(this.state.colsArr === null || this.state.numOfRows === null)
         {
             return (<p/>);
         }
-        else return (<Table colsArr={this.state.colsArr} numOfRows={this.state.numOfRows} tableName={this.state.formData.tableName.value}/>)
+        else return (<Table colsArr={this.state.colsArr} numOfRows={this.state.numOfRows} tableName={this.state.formData.tableName.value} serverLink={this.props.serverLink}/>)
 
     };
 
@@ -96,7 +98,7 @@ class AddNewTable extends React.Component {
                     <label className="label_blue">_ </label>
                     {/*<button type="submit" className="btn btn-success">Submit</button>*/}
                     <button type="button" onClick={this.handleGenerateTable} className="btn btn-success">Generate Table</button><span>  </span>
-                    <button type="button" onClick={this.handleDeleteResponse} className="btn btn-danger">Erase Table</button><span>  </span>
+                    {/*<button type="button" onClick={this.handleDeleteResponse} className="btn btn-danger">Erase Table</button><span>  </span>*/}
                 </form><br/>
 
                 {this.renderIfneeded()}

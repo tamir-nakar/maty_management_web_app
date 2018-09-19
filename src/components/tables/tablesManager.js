@@ -5,7 +5,7 @@ import InstantMessage from "../rules/instantMessage";
 import ExternalService from "../rules/externalService";
 import Recipe from "../rules/recipe";
 import AddNewTable from "./addNewTable";
-import EditNewTable from "./editExisitingTable";
+import EditExistingTable from "./editExisitingTable";
 
 class TablesManager extends React.Component {
 
@@ -30,10 +30,15 @@ class TablesManager extends React.Component {
 
     updateForm = (newFormData) => {
 
+        // console.log(newFormData);
+        // let newState = this.state;
+        // newState.formData.service.value = newFormData;
+        // this.setState(newState);
         this.setState({
             formData: newFormData
         });
     };
+
 
     getComponent() {
 
@@ -43,7 +48,7 @@ class TablesManager extends React.Component {
                 chosenComponent = <AddNewTable serverLink={this.props.serverLink}/> ;
                 break;
             case('EditExistingTable'):
-                chosenComponent = <EditNewTable serverLink={this.props.serverLink}/> ;
+                chosenComponent = <EditExistingTable serverLink={this.props.serverLink}/> ;
                 break;
             default:
                 chosenComponent = null;
@@ -53,8 +58,10 @@ class TablesManager extends React.Component {
     }
 
 
+
     render() {
 
+        console.log(`rendering: ${this.state.formData.service.value}`)
         const specific = {
             background:'rgb(162, 183, 182)',
             color: 'white'
