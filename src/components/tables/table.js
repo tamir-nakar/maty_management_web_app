@@ -6,6 +6,8 @@ import '../../css/styles.css'
 
 class Table extends React.Component {
 
+    // componentDidMount(){
+    // }
     constructor(props, context) {
 
         super(props, context);
@@ -34,7 +36,7 @@ class Table extends React.Component {
 
     createRows = () => {
 
-        if(this.props.theRows){
+        if(this.props.theRows){ // we came from edit exisiting table
             this.state.rows = this.props.theRows;
             return;
         }
@@ -83,8 +85,7 @@ class Table extends React.Component {
         this.setState(newState);
     };
 
-    handleSubmit = () => {
-
+    addNewTable = () => {
         let dataToSubmit_createTable ={};
         dataToSubmit_createTable['table_name'] = this.props.tableName;
         dataToSubmit_createTable['table_cols'] = this.props.colsArr;
@@ -134,51 +135,61 @@ class Table extends React.Component {
 
                     else
                         alert(`Error please try again`);
-
-
-
-
-
                 });
             });
-
     };
+    handleSubmit = () => {
 
-    handleGridRowsUpdated = ({ fromRow, toRow, updated }) => {
-        let rows = this.state.rows.slice();
+        if (this.props.theRows) { // we came from edit exisiting table
+            fetch(`${this.props.serverLink}/table/${this.props.tableName}`, {
+                method: 'DELETE',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+            }).then((response) => {
+                if (response.status === 200) {
+                    this.addNewTable();
+                }else alert("error in deletion");
+            });
+        }else this.addNewTable();
+    };
+        handleGridRowsUpdated = ({ fromRow, toRow, updated }) => {
+            let rows = this.state.rows.slice();
 
-        for (let i = fromRow; i <= toRow; i++) {
-            let rowToUpdate = rows[i];
-            let updatedRow = update(rowToUpdate, {$merge: updated});
-            rows[i] = updatedRow;
+            for (let i = fromRow; i <= toRow; i++) {
+                let rowToUpdate = rows[i];
+                let updatedRow = update(rowToUpdate, {$merge: updated});
+                rows[i] = updatedRow;
+            }
+
+            this.setState({ rows });
+        };
+
+        render() {
+            console.log("RENDER THE TABLE COMPONENT")
+
+            return  (
+                <div>
+
+                    <ReactDataGrid
+                        enableCellSelect={true}
+                        columns={this.createCols()}
+                        rowGetter={this.rowGetter}
+                        rowsCount={this.state.rows.length}
+                        minHeight={400}
+                        onGridRowsUpdated={this.handleGridRowsUpdated}
+                    />
+
+                    <button type="button" onClick={this.handleAddRow} className="btn btn-info">ADD ROW</button><span>  </span>
+                    <button type="button" onClick={this.handleRemoveRow} className="btn btn-info">REMOVE ROW</button><span>  </span>
+                    <button type="button" onClick={this.handleSubmit} className="btn btn-success">SUBMIT TABLE</button>
+
+
+                </div>
+
+            );
         }
-
-        this.setState({ rows });
-    };
-
-    render() {
-
-        return  (
-            <div>
-
-                <ReactDataGrid
-                    enableCellSelect={true}
-                    columns={this.createCols()}
-                    rowGetter={this.rowGetter}
-                    rowsCount={this.state.rows.length}
-                    minHeight={400}
-                    onGridRowsUpdated={this.handleGridRowsUpdated}
-                />
-
-                <button type="button" onClick={this.handleAddRow} className="btn btn-info">ADD ROW</button><span>  </span>
-                <button type="button" onClick={this.handleRemoveRow} className="btn btn-info">REMOVE ROW</button><span>  </span>
-                <button type="button" onClick={this.handleSubmit} className="btn btn-success">SUBMIT TABLE</button>
-
-
-            </div>
-
-        );
     }
-}
 
-export default Table;
+    export default Table;
