@@ -55,7 +55,15 @@ class ExternalService extends Component {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(dataToSubmit)
-        })
+        }).then((response) => {
+            if (response.status >= 200 && response.status < 300) {
+                alert("The rule was uploaded successfully")
+            }else if(response.status === 403){
+                alert(`The name ${this.state.formData.name.value} is already exists. 
+                Please try again`);
+            } else alert(`Unexpected error. Please Verify your connection to the bot's server (in 'Login' section)`);
+        }).catch( () => {alert(`Unexpected error. Please Verify your connection to the bot's server (in 'Login' section)`)});
+
 
     };
 

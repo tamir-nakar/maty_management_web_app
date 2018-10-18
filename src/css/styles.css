@@ -87,6 +87,14 @@ input {
     resize: vertical;
     width: 90%;
 }
+textarea {
+    font-size: 17px;
+    padding: 8px 12px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    resize: vertical;
+    width: 90%;
+}
 
 button {
     background: #3F51B5;

@@ -73,7 +73,7 @@ class Recipe extends Component {
             not_found:{
                 element: 'responses',
                 label:true,
-                labelText: '"NOT FOUND" Responses List',
+                labelText: 'Unknown Argument Responses List',
                 hover: true,
                 labelTextOnHover: 'Specify Messages that will appear in case of unknown argument',
                 visibility: true,
@@ -160,7 +160,7 @@ class Recipe extends Component {
             // noinspection JSAnnotator
             dataToSubmit.recipe.arguments[arg.name]['match'] = {};
             // noinspection JSAnnotator
-            dataToSubmit.recipe.arguments[arg.name]['match']['query'] = arg.query;
+            dataToSubmit.recipe.arguments[arg.name]['match']['query'] = arg.query.toLowerCase().replace(/\n/g, ' ');
             // noinspection JSAnnotator
             dataToSubmit.recipe.arguments[arg.name]['match']['empty_result'] = {};
             // noinspection JSAnnotator
@@ -187,7 +187,15 @@ class Recipe extends Component {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(dataToSubmit)
-        })
+        }).then((response) => {
+            if (response.status >= 200 && response.status < 300) {
+                alert("The rule was uploaded successfully")
+            }else if(response.status === 403){
+                alert(`The name ${this.state.formData.name.value} is already exists. 
+                Please try again`);
+            } else alert(`Unexpected error. Please Verify your connection to the bot's server (in 'Login' section)`);
+        })            .catch( () => {alert(`Unexpected error. Please Verify your connection to the bot's server (in 'Login' section)`)})
+        ;
 
     };
 

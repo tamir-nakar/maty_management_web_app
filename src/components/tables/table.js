@@ -130,8 +130,8 @@ class Table extends React.Component {
                     },
                     body: JSON.stringify(dataToSubmit_supplyRows)
                 }).then( (response2) =>{
-                    if(response2.status === 200)
-                        alert(`The table ${this.props.table_name} was uploaded successfully`);
+                    if(response.status >= 200 && response.status < 300)
+                        alert(`The table ${this.props.tableName} was uploaded successfully`);
 
                     else
                         alert(`Error please try again`);

@@ -8,8 +8,10 @@ class EditExistingTable extends React.Component {
     constructor(props, context) {
 
         super(props, context);
+        this.invokeFetchTables = true;
         fetch(`${this.props.serverLink}/table`, {method: 'GET'})
             .then( (response) => {return response.json()})
+            .catch( () => {alert(`Unexpected error. Please Verify your connection to the bot's server (in 'Login' section).`) ;this.invokeFetchTables = false})
             .then( (myJson) => {this.state = {
 
                 formData: {
@@ -33,7 +35,8 @@ class EditExistingTable extends React.Component {
             };
 
                 this.counter = 1;
-                this.fetchTables();
+                if(this.invokeFetchTables)
+                    this.fetchTables();
             });
     }
 
@@ -61,7 +64,6 @@ class EditExistingTable extends React.Component {
 
     fetchTables = () => {
 
-        console.log("in fech Tables");
         let newState = this.state;
         let optionsArr = newState.formData.tablesNames.config.options;
 
@@ -124,52 +126,9 @@ class EditExistingTable extends React.Component {
         }
     };
 
-    renderIfneeded(){
-
-        console.log("In renderIfNeeded");
-
-        if(this.state.tablesData === null ||
-            this.state.tablesData === undefined ||
-            this.state.formData.tablesNames.value === ' ')
-        {
-            return (<p/>);
-        }
-        else{
-            let colsArr = [];
-            let theRows = [];
-            let currentTable = this.state.tablesData[this.state.formData.tablesNames.value];
-
-            //todo - use this code to fetch the cols of the current table
-            fetch(`${this.props.serverLink}/table/${currentTable.table_name}`, {method: 'GET'})
-                .then((response) => {return response.json();})
-                .then((myJson) => {
-                    const json_2 = myJson;
-                    let current_row_to_push = {};
-                    let index = 0;
-                    currentTable.table_cols.map( (col) => { colsArr.push(col) });
-                    json_2.map( (row) => { //foreach row
-                        Object.keys(row).map((key) =>{ //foreach key
-                            current_row_to_push[index] = row[key];
-                            index++
-                        });
-                        theRows.push(current_row_to_push);
-                        index=0;
-                        current_row_to_push ={};
-                    });
-                    console.log(`going to return table with cols: ${colsArr} theRows ${theRows} numOfRows= ${theRows.length} serverLink ${this.props.serverLink}`);
-                    console.log(colsArr);
-                    console.log(theRows);
-                    this.myData = (<Table colsArr={colsArr} theRows={theRows} numOfRows={theRows.length} tableName={currentTable.table_name} serverLink={this.props.serverLink}/>);
-                });
-        }
-    };
-
     render() {
 
         console.log(`IN render #${this.counter++} the tablesData is:`);
-        // console.log(this.state.tablesData);
-        // if(this.state.tablesData !== null && this.state.tablesData !== undefined)
-        //     this.fetchTables();
 
         return (
             <div className="container-fluid">

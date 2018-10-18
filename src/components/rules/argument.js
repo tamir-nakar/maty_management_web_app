@@ -3,6 +3,7 @@ import '../../css/styles.css'
 import '../../css/respond.css'
 //import ReactTooltip from "react-tooltip";
 import Respond from "./respond";
+import ReactTooltip from "react-tooltip";
 
 class Argument extends Component {
 
@@ -50,6 +51,18 @@ class Argument extends Component {
         this.props.changeFunc('event', -1);
     };
 
+    highlightKeywords = (event) => {
+
+        let value = event.target.value;
+        event.target.value = value.replace(/from|select|where|and|or|contains|as|like|value|/gi, (word)=>{
+            return    word.toUpperCase();
+
+        });
+        //let words = event.target.value.split(" ");
+
+        //console.log(filtered);
+    };
+
     render() {
 
         const inputs = this.props.argumentsArr.map((arg, i) =>( //Foreach Argument
@@ -82,11 +95,18 @@ class Argument extends Component {
                         parentArgumentName='split_faild_responses'
                         parentIndex = {i}
                     /><br/>
-                    <label>Query</label>
-                    <input //query
+
+                    <a data-tip data-for={"1"}>  <label>Query</label></a>
+                    <ReactTooltip id={"1"} type='info'>
+                        <p className="toolkit_info"> Your SQL query to retrieve info from the DB. use value#}} to refer to returned values</p>
+                    </ReactTooltip>
+
+                    <textarea //query
                         name='query'
                         value={arg.query}
-                        type ='text'
+                        //type ='text'
+                        style={{"color":"blue"}}
+                        onKeyDown={(event) =>this.highlightKeywords(event)}
                         onChange={(event) => this.props.changeFunc(event, i, 'query')}
                     />
                     <label>Query Succeeded Responds List</label>

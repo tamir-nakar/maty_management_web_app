@@ -37,9 +37,9 @@ class InstantMessage extends Component {
                 label: true,
                 labelText: 'Date Greetings',
                 hover: true,
-                labelTextOnHover: 'Enable/Disable Date Greetings feature. When enabled' +
+                labelTextOnHover: 'Enable/Disable Date Greetings feature. When enabled ' +
                     'your service will respond the right greet according to day time. use the ' +
-                    '{date_greet} tag to locate your greet inside the answer',
+                    '{{date_greet}} tag to locate your greet inside the answer',
                 visibility: true,
                 config: {
                     name: 'date_greet_checkbox',
@@ -153,8 +153,15 @@ class InstantMessage extends Component {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(dataToSubmit)
-        })
-
+        }).then((response) => {
+            if (response.status >= 200 && response.status < 300) {
+                alert("The rule was uploaded successfully")
+            }else if(response.status === 403){
+                alert(`The name ${this.state.formData.name.value} is already exists. 
+                Please try again`);
+            } else alert(`Unexpected error. Please Verify your connection to the bot's server (in 'Login' section)`);
+        })            .catch( () => {alert(`Unexpected error. Please Verify your connection to the bot's server (in 'Login' section)`)})
+        ;
     };
 
     updateForm = (newFormData) => {
